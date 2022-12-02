@@ -8,44 +8,32 @@ export default function Topbar() {
       <div className="topCenter">
         <ul className="topList">
           <li className="topListItem">
-            <Link className="link" to="/">
-              HOME
-            </Link>
+            <Link className="link" to="/">HOME</Link>
           </li>
           <li className="topListItem">ABOUT</li>
-          <li className="topListItem">CONTACT</li>
           <li className="topListItem">
-            <Link className="link" to="/write">
-              WRITE
-            </Link>
+            <Link className="link" to="/write">WRITE</Link>
           </li>
+          {user ? (
+              <Link className="link" to="/profile">
+                <li className="topListItem">PROFILE</li>
+              </Link>
+          ) : (
+              <ul className="topList">
+                <li className="topListItem">
+                  <Link className="link" to="/login">LOGIN</Link>
+                </li>
+                <li className="topListItem">
+                  <Link className="link" to="/register">
+                    REGISTER
+                  </Link>
+                </li>
+              </ul>
+          )}
           {user && <li className="topListItem">LOGOUT</li>}
+          <i className="topSearchIcon fas fa-search"></i>
+
         </ul>
-      </div>
-      <div className="topRight">
-        {user ? (
-          <Link className="link" to="/settings">
-            <img
-              className="topImg"
-              src="https://p7.itc.cn/images01/20210130/509dd7dddfd447308bf3b31d2f9f190f.jpeg"
-              alt=""
-            />
-          </Link>
-        ) : (
-          <ul className="topList">
-            <li className="topListItem">
-              <Link className="link" to="/login">
-                LOGIN
-              </Link>
-            </li>
-            <li className="topListItem">
-              <Link className="link" to="/register">
-                REGISTER
-              </Link>
-            </li>
-          </ul>
-        )}
-        <i className="topSearchIcon fas fa-search"></i>
       </div>
     </div>
   );

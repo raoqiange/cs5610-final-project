@@ -16,7 +16,7 @@
 .settingsTitleUpdate {
   font-size: 30px;
   margin-bottom: 20px;
-  color: lightcoral;
+  color: deepskyblue;
 }
 
 .settingsTitleDelete {
@@ -87,7 +87,7 @@
   border: none;
   border-radius: 10px;
   color: white;
-  background-color: teal;
+  background-color: lightblue;
   padding: 10px;
   margin-top: 20px;
   cursor: pointer;
@@ -97,5 +97,5 @@
 }
 
 .settingsSubmitButton:hover {
-  background-color: rgb(1, 114, 114);
+  background-color: steelblue;
 }

@@ -32,10 +32,10 @@
 }
 
 .singlePostIcon:first-child {
-  color: teal;
+  color: dodgerblue;
 }
 .singlePostIcon:last-child {
-  color: tomato;
+  color: black;
 }
 
 .singlePostInfo {
@@ -57,7 +57,7 @@
   line-height: 25px;
 }
 
-.singlePostDesc::first-letter {
+.singlePostDes {
   margin-left: 20px;
   font-size: 30px;
   font-weight: 600;

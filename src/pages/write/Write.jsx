@@ -5,7 +5,7 @@ export default function Write() {
     <div className="write">
       <img
         className="writeImg"
-        src="https://images.pexels.com/photos/6685428/pexels-photo-6685428.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+        src="https://thecinemaholic.com/wp-content/uploads/2021/01/nezuu-e1638963260523.jpg"
         alt=""
       />
       <form className="writeForm">
