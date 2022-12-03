@@ -8,18 +8,21 @@
       rgba(255, 255, 255, 0.5),
       rgba(255, 255, 255, 0.5)
     ),
-    url("https://images.pexels.com/photos/768473/pexels-photo-768473.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500");
+    url("https://static.fandomspot.com/images/11/22967/00-featured-wonder-egg-priority-anime-screenshot.jpg");
   background-size: cover;
 }
 
 .loginTitle {
-  font-size: 50px;
+  font-size: 65px;
+  color: black;
 }
 
 .loginForm {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
+  color: black;
+  font-size: 25px;
 }
 
 .loginForm > label {
@@ -31,16 +34,21 @@
   background-color: white;
   border: none;
   border-radius: 10px;
+  width: 300px;
 }
 
 .loginInput:focus {
   outline: none;
 }
 
+.Link{
+  text-decoration: none;
+}
+
 .loginButton {
   margin-top: 20px;
   cursor: pointer;
-  background-color: lightcoral;
+  background-color: dodgerblue;
   color: white;
   padding: 10px;
   border: none;
@@ -52,7 +60,7 @@
   position: absolute;
   top: 60px;
   right: 20px;
-  background-color: teal;
+  background-color: yellow;
   cursor: pointer;
   padding: 10px;
   border: none;
