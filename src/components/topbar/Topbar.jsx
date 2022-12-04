@@ -26,6 +26,11 @@ export default function Topbar() {
             </Link>
           </li>
           {user && <li className="topListItem">LOGOUT</li>}
+            <li className="topListItem">
+                <Link className="link" to="/test">
+                    TEST
+                </Link>
+            </li>
         </ul>
       </div>
       <div className="topRight">
