@@ -5,7 +5,7 @@ export default function Write() {
     <div className="write">
       <img
         className="writeImg"
-        src="https://thecinemaholic.com/wp-content/uploads/2021/01/nezuu-e1638963260523.jpg"
+        src="https://assets.reedpopcdn.com/Genshin-Impact-anime.jpg/BROK/thumbnail/1600x900/quality/100/Genshin-Impact-anime.jpg"
         alt=""
       />
       <form className="writeForm">
