@@ -11,11 +11,13 @@ import {configureStore} from "@reduxjs/toolkit";
 import {Provider} from "react-redux";
 import animeReducer from "./services/anime/anime-reducer";
 import Test from "./components/test/test";
+import UserTest from "./components/test/userTest";
+import userReducer from "./services/users/user-reducer";
 
 function App() {
-  const currentUser = true;
+  const hasUser = true;
   const store = configureStore({
-    reducer: {anime: animeReducer}
+    reducer: {anime: animeReducer, users: userReducer}
   });
 
   return (
@@ -27,7 +29,9 @@ function App() {
             <Route exact path="/test">
               <Test />
             </Route>
-            {/*for test*/}
+            <Route exact path="/usertest">
+              <UserTest />
+            </Route>
             <Route exact path="/">
               <Homepage />
             </Route>
@@ -35,15 +39,15 @@ function App() {
               <Homepage />
             </Route>
             <Route path="/register">
-              {currentUser ? <Homepage /> : <Register />}
+              {hasUser ? <Homepage /> : <Register />}
             </Route>
-            <Route path="/login">{currentUser ? <Homepage /> : <Login />}</Route>
+            <Route path="/login">{hasUser ? <Homepage /> : <Login />}</Route>
             <Route path="/post/:id">
               <Single />
             </Route>
-            <Route path="/write">{currentUser ? <Write /> : <Login />}</Route>
+            <Route path="/write">{hasUser ? <Write /> : <Login />}</Route>
             <Route path="/settings">
-              {currentUser ? <Settings /> : <Login />}
+              {/*{hasUser ? <Settings /> : <Login />}*/}
             </Route>
           </Switch>
         </Router>
