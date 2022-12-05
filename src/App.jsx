@@ -6,6 +6,7 @@ import Profile from "./pages/settings/Settings";
 import Single from "./pages/single/Single";
 import Write from "./pages/write/Write";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import React from 'react';
 
 import {configureStore} from "@reduxjs/toolkit";
 import {Provider} from "react-redux";
@@ -42,8 +43,8 @@ function App() {
               <Single />
             </Route>
             <Route path="/write">{currentUser ? <Write /> : <Login />}</Route>
-            <Route path="/settings">
-              {currentUser ? <Settings /> : <Login />}
+            <Route path="/Profile">
+              {currentUser ? <Profile /> : <Login />}
             </Route>
           </Switch>
         </Router>
