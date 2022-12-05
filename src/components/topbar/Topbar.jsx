@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "./topbar.css";
+import React from 'react';
 
 export default function Topbar() {
   const user = true;
@@ -33,6 +34,8 @@ export default function Topbar() {
                     TEST
                 </Link>
             </li>
+
+            <i className="topSearchIcon fas fa-search"></i>
         </ul>
       </div>
     </div>
