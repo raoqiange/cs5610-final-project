@@ -27,7 +27,12 @@ export default function Topbar() {
           )}
 
           {user && <li className="topListItem">LOGOUT</li>}
-          <i className="topSearchIcon fas fa-search"></i>
+
+            <li className="topListItem">
+                <Link className="link" to="/test">
+                    TEST
+                </Link>
+            </li>
         </ul>
       </div>
     </div>
