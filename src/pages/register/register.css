@@ -8,18 +8,21 @@
       rgba(255, 255, 255, 0.5),
       rgba(255, 255, 255, 0.5)
     ),
-    url("https://images.pexels.com/photos/317355/pexels-photo-317355.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    url("https://www.lingualift.com/wp-content/uploads/2020/03/anime.png");
   background-size: cover;
 }
 
 .registerTitle {
-  font-size: 50px;
+  font-size: 65px;
 }
-
+.Link{
+  text-decoration: none;
+}
 .registerForm {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
+  font-size: 25px;
 }
 
 .registerForm > label {
@@ -31,16 +34,18 @@
   background-color: white;
   border: none;
   border-radius: 10px;
+  width: 300px;
 }
 
 .registerInput:focus {
   outline: none;
+
 }
 
 .registerButton {
   margin-top: 20px;
   cursor: pointer;
-  background-color: teal;
+  background-color: dodgerblue;
   color: white;
   padding: 10px;
   border: none;
@@ -52,7 +57,7 @@
   position: absolute;
   top: 60px;
   right: 20px;
-  background-color: lightcoral;
+  background-color: yellow;
   cursor: pointer;
   padding: 10px;
   border: none;

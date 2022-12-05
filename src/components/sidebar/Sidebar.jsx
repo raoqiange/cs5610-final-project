@@ -19,45 +19,24 @@ export default function Sidebar() {
         <span className="sidebarTitle">CATEGORIES</span>
         <ul className="sidebarList">
           <li className="sidebarListItem">
-            <Link className="link" to="/posts?cat=Life">
-              Action
-            </Link>
+            <Link className="link" to="/posts?cat=Life">Action</Link>
           </li>
           <li className="sidebarListItem">
-            <Link className="link" to="/posts?cat=Music">
-              Comedy
-            </Link>
+            <Link className="link" to="/posts?cat=Music">Comedy</Link>
           </li>
           <li className="sidebarListItem">
-            <Link className="link" to="/posts?cat=Sport">
-              Drama
-            </Link>
+            <Link className="link" to="/posts?cat=Sport">Drama</Link>
           </li>
           <li className="sidebarListItem">
-            <Link className="link" to="/posts?cat=Style">
-              Tragedy
-            </Link>
+            <Link className="link" to="/posts?cat=Style">Tragedy</Link>
           </li>
           <li className="sidebarListItem">
-            <Link className="link" to="/posts?cat=Tech">
-              History
-            </Link>
+            <Link className="link" to="/posts?cat=Tech">History</Link>
           </li>
           <li className="sidebarListItem">
-            <Link className="link" to="/posts?cat=Cinema">
-              Magic
-            </Link>
+            <Link className="link" to="/posts?cat=Cinema">Magic</Link>
           </li>
         </ul>
-      </div>
-      <div className="sidebarItem">
-        <span className="sidebarTitle">FOLLOW US</span>
-        <div className="sidebarSocial">
-          <i className="sidebarIcon fab fa-facebook-square"></i>
-          <i className="sidebarIcon fab fa-instagram-square"></i>
-          <i className="sidebarIcon fab fa-pinterest-square"></i>
-          <i className="sidebarIcon fab fa-twitter-square"></i>
-        </div>
       </div>
     </div>
   );
