@@ -5,6 +5,7 @@ import Register from "./pages/register/Register";
 import Profile from "./pages/settings/Settings";
 import Single from "./pages/single/Single";
 import Write from "./pages/write/Write";
+import Search from "./pages/search/search";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import React from 'react';
 
@@ -55,6 +56,11 @@ function App() {
             <Route path="/Profile">
               {hasUser ? <Profile /> : <Login />}
             </Route>
+
+            <Route exact path="/search">
+              <Search />
+            </Route>
+
           </Switch>
         </Router>
       </Provider>

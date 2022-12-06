@@ -35,7 +35,12 @@ export default function Topbar() {
                 </Link>
             </li>
 
-            <i className="topSearchIcon fas fa-search"></i>
+            <li className="topListItem">
+                <Link className="link" to="/search">
+                    <i className="topSearchIcon fas fa-search"></i>
+                </Link>
+            </li>
+            
         </ul>
       </div>
     </div>
