@@ -13,12 +13,14 @@ import {Provider} from "react-redux";
 import animeReducer from "./services/anime/anime-reducer";
 import Test from "./components/test/test";
 import UserTest from "./components/test/userTest";
+import CollectionTest from "./components/test/collectionTest";
 import userReducer from "./services/users/user-reducer";
+import collectionReducer from "./services/collections/collection-reducer";
 
 function App() {
   const hasUser = true;
   const store = configureStore({
-    reducer: {anime: animeReducer, users: userReducer}
+    reducer: {anime: animeReducer, users: userReducer, collections: collectionReducer}
   });
 
   return (
@@ -32,6 +34,9 @@ function App() {
             </Route>
             <Route exact path="/usertest">
               <UserTest />
+            </Route>
+            <Route exact path="/collectiontest">
+              <CollectionTest />
             </Route>
             <Route exact path="/">
               <Homepage />
