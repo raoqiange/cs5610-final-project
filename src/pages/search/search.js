@@ -26,7 +26,9 @@ const Search = () => {
                 <button className="searchButton" onClick={()=>dispatch(searchAnimeThunk(searchAnime))}>Search</button>
                 {loadingSearchedAnime && "...loading searched anime"}
                 {!loadingSearchedAnime && searchedAnimeList.map(anime =>
-                    <div key={anime._id}> <Post img={anime.image} id={anime._id} title={anime.title} synopsis={anime.synopsis} status={anime.status} genres={anime.genres}/> </div>)}
+                    <div key={anime._id}> <Post img={anime.image} id={anime._id} 
+                                                title={anime.title} synopsis={anime.synopsis} 
+                                                status={anime.status} genres={anime.genres}/> </div>)}
             </div>
         </>
     )
