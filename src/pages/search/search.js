@@ -9,13 +9,16 @@ const Search = () => {
 
     const {
         searchedAnimeList,
-        loadingSearchedAnime} = useSelector(state => state.anime);
+        loadingSearchedAnime
+    } = useSelector(state => state.anime);
     const [searchAnime, setSearchAnime] = useState('');
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getAllAnimeThunk());
     }, [dispatch])
+    
 
+    // console.log(searchedAnimeList);
     return (
         <>
             <div className="search">

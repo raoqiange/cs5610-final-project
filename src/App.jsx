@@ -4,7 +4,7 @@ import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import Profile from "./pages/settings/Settings";
 import Single from "./pages/single/Single";
-import Write from "./pages/write/Write";
+import Forum from "./pages/forum/Forum";
 import Search from "./pages/search/search";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import React from 'react';
@@ -52,7 +52,7 @@ function App() {
             <Route path="/post/:id">
               <Single />
             </Route>
-            <Route path="/write">{hasUser ? <Write /> : <Login />}</Route>
+            <Route path="/forum">{hasUser ? <Forum /> : <Login />}</Route>
             <Route path="/Profile">
               {hasUser ? <Profile /> : <Login />}
             </Route>
