@@ -8,7 +8,7 @@ export const getReviewsByAnimeIdThunk = createAsyncThunk(
 
 export const createReviewThunk = createAsyncThunk(
     'reviews/createReview',
-    async (animeId, body) => await service.createReview(animeId, body)
+    async ({animeId, body}) => await service.createReview(animeId, body)
 )
 
 export const deleteReviewThunk = createAsyncThunk(

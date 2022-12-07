@@ -1,6 +1,14 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {getCollectionsByUsernameThunk, getCollectionByCollectionIdThunk, createCollectionThunk,
-    updateCollectionThunk, deleteCollectionThunk,} from "./collection-thunks";
+import {
+    getCollectionsByUsernameThunk,
+    getCollectionByCollectionIdThunk,
+    createCollectionThunk,
+    updateCollectionThunk,
+    deleteCollectionThunk,
+    getAllAnimeByCollectionIdThunk,
+    addAnimeToCollectionThunk,
+    removeAnimeFromCollectionThunk,
+} from "./collection-thunks";
 // getAllAnimeByCollectionIdThunk,addAnimeToCollectionThunk
 
 const initialState = {
@@ -9,7 +17,8 @@ const initialState = {
     currentCollection: {},
     loadingCollection: false,
     animeInCollection: [],
-    loadingAnimeInCollection: false
+    loadingAnimeInCollection: false,
+    message: ''
 }
 
 const collectionReducer = createSlice({
@@ -34,7 +43,7 @@ const collectionReducer = createSlice({
         },
         [updateCollectionThunk.fulfilled]: (state, action) => {
             state.collections = state.collections.map(collection => {
-                if (collection === action.payload.collectionId) {
+                if (collection._id === action.payload.collectionId) {
                     return {...collection, ...action.payload.body};
                 } else {
                     return collection;
@@ -50,7 +59,20 @@ const collectionReducer = createSlice({
             state.currentCollection = action.payload;
             state.loadingCollection = false;
         },
-
+        [getAllAnimeByCollectionIdThunk.pending]: (state, action) => {
+            state.animeInCollection = [];
+            state.loadingAnimeInCollection = true;
+        },
+        [getAllAnimeByCollectionIdThunk.fulfilled]: (state, action) => {
+            state.animeInCollection = action.payload;
+            state.loadingAnimeInCollection = false;
+        },
+        [addAnimeToCollectionThunk.fulfilled]: (state, action) => {
+            state.message = action.payload.message;
+        },
+        [removeAnimeFromCollectionThunk.fulfilled]: (state, action) => {
+            state.animeInCollection = state.animeInCollection.filter(anime=>anime.anime_id !== action.payload)
+        }
     }
 })
 

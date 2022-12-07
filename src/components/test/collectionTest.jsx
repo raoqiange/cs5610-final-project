@@ -4,6 +4,8 @@ import {getCollectionsByUsernameThunk, getCollectionByCollectionIdThunk, createC
     } from '../../services/collections/collection-thunks'
 // updateCollectionThunk, deleteCollectionThunk
 
+import CollectionDetail from './collectionDetail';
+
 const CollectionTest = () => {
     const currentUser = 'tom';
     const {
@@ -35,7 +37,7 @@ const CollectionTest = () => {
                      )
                 }
                 {loadingCollection && "...loading collection"}
-                {!loadingCollection && currentCollection.name}
+                {!loadingCollection && <CollectionDetail currentCollection={currentCollection}/>}
 
                 <input type='text' value={newCollectionName} onChange={(e) => setNewCollectionName(e.target.value)}/>
                 <button onClick={()=>dispatch(createCollectionThunk({fan_username: currentUser, name: newCollectionName}))}>
