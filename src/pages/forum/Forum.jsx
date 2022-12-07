@@ -1,7 +1,7 @@
-import "./write.css";
+import "./forum.css";
 import React from 'react';
 
-export default function Write() {
+export default function Forum() {
   return (
     <div className="write">
       <img

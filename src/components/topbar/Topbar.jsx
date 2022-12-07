@@ -10,7 +10,7 @@ export default function Topbar() {
         <ul className="topList">
           <li className="topListItem"><Link className="link" to="/">HOME</Link></li>
           <li className="topListItem">ABOUT</li>
-          <li className="topListItem"><Link className="link" to="/write">WRITE</Link></li>
+          <li className="topListItem"><Link className="link" to="/forum">FORUM</Link></li>
 
           {user ? (
               <Link className="link" to="/profile">
@@ -35,7 +35,12 @@ export default function Topbar() {
                 </Link>
             </li>
 
-            <i className="topSearchIcon fas fa-search"></i>
+            <li className="topListItem">
+                <Link className="link" to="/search">
+                    <i className="topSearchIcon fas fa-search"></i>
+                </Link>
+            </li>
+            
         </ul>
       </div>
     </div>
