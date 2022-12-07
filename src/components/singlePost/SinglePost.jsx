@@ -49,7 +49,9 @@ export default function SinglePost() {
         <div className="singlePostInfo">
           <span>
         Genres:
-            {animeDetail.genres}
+            {animeDetail.generes && animeDetail.generes.map((g) => {
+              return <span>{g}</span>
+            })}
           </span>
           <span>
         Type:
