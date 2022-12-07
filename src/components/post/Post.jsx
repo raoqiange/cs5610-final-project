@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import "./post.css";
 import React from 'react';
 
-export default function Post({img}) {
+export default function Post({img, id, title, synopsis, status, genres}) {
   return (
     <div className="post">
       <img
@@ -11,29 +11,23 @@ export default function Post({img}) {
         alt=""
       />
       <div className="postInfo">
-        <div className="postCats">
-          <span className="postCat">
-            <Link className="link" to="/posts?cat=Music">
-              Music
-            </Link>
-          </span>
-          <span className="postCat">
-            <Link className="link" to="/posts?cat=Music">
-              Life
-            </Link>
-          </span>
-        </div>
+          <div className="postCats">
+              { genres &&
+                  genres.map(genre => <span className="postCat">
+                  {genre}
+              </span>)
+              }
+          </div>
         <span className="postTitle">
-          <Link to="/post/abc" className="link">
-            Lorem ipsum dolor sit amet
+          <Link to={`/post/${id}`} className="link">
+            {title}
           </Link>
         </span>
         <hr />
-        <span className="postDate">1 hour ago</span>
+        <span className="postDate">{status}</span>
       </div>
       <p className="postDesc">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda
-        officia architecto deserunt deleniti? Labore ipsum aspernatur magnam.
+          {synopsis}
       </p>
     </div>
   );
