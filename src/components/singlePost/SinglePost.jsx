@@ -43,22 +43,27 @@ export default function SinglePost() {
           </span>
           <span>
             Episodes:
+            <b className="singlePostAuthor">
             {animeDetail.episodes}
+              </b>
             </span>
         </div>
         <div className="singlePostInfo">
           <span>
         Genres:
-            {animeDetail.generes && animeDetail.generes.map((g) => {
-              return <span>{g}</span>
-            })}
+            {
+                animeDetail.genres && animeDetail.genres.map((g,idx) => {
+                  return <span key={idx}> {g} </span>
+                })
+            }
           </span>
           <span>
         Type:
+            <b className="singlePostAuthor">
             {animeDetail.type}
+              </b>
             </span>
         </div>
-
         <p className="singlePostDesc">
           <br />
           <br />
