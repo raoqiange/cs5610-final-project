@@ -18,8 +18,8 @@ export const createCollection = async (body) => {
 }
 
 export const updateCollection = async (collectionId, body) => {
-    await axios.put(`${COLLECTION_API}/${collectionId}`, body);
-    return {body, collectionId};
+    const response = await axios.put(`${COLLECTION_API}/${collectionId}`, body);
+    return response.data;
 }
 
 export const deleteCollection = async (collectionId) => {
@@ -32,11 +32,12 @@ export const getAllAnimeByCollectionIdAndUsername = async (collectionId, usernam
     return response.data;
 }
 
-export const addAnimeToCollection = async (collectionId, animeId, username) => {
-    const response = await axios.get(`${COLLECTION_API}/${collectionId}/anime/${animeId}?username=${username}`);
+export const addAnimeToCollection = async (collectionId, animeId, username, body) => {
+    const response = await axios.post(`${COLLECTION_API}/${collectionId}/anime/${animeId}?username=${username}`, body);
     return response.data;
 }
 
-// export const removeAnimeFromCollection = async (collectedAnime) = {
-//
-// }
+export const removeAnimeFromCollection = async (collectionId, animeId, username) => {
+    const response = await axios.delete(`${COLLECTION_API}/${collectionId}/anime/${animeId}?username=${username}`);
+    return response.data;
+}

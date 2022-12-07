@@ -15,20 +15,14 @@ export const createCollectionThunk = createAsyncThunk(
     'collections/createCollection',
     async (body) => await service.createCollection(body)
 )
-//body --
-// {    "anime": {
-//          "username": "tom",
-//         "title": "cowbody bebop",
-//         "ranking": 1,
-//         "image": "....",
-//         "thumb":"...",
-//         "synopsis": "collect"
-// }
-// }
+
 
 export const updateCollectionThunk = createAsyncThunk(
     'collections/updateCollection',
-    async (collectionId, body) => await service.updateCollection(collectionId, body)
+    async ({collectionId, body}) => {
+        await service.updateCollection(collectionId, body);
+        return {collectionId, body};
+    }
 )
 
 export const deleteCollectionThunk = createAsyncThunk(
@@ -41,11 +35,31 @@ export const deleteCollectionThunk = createAsyncThunk(
 
 export const getAllAnimeByCollectionIdThunk = createAsyncThunk(
     'collections/getAnimeInCollection',
-    async (collectionId, username) => await service.getAllAnimeByCollectionIdAndUsername(collectionId, username)
+    async ({collectionId, username}) => await service.getAllAnimeByCollectionIdAndUsername(collectionId, username)
 )
 
 export const addAnimeToCollectionThunk = createAsyncThunk(
     'collections/addAnimeToCollection',
-    async (collectionId, animeId, username) => await service.addAnimeToCollection(collectionId, animeId, username)
+    async ({collectionId, animeId, username, body}) => await service.addAnimeToCollection(collectionId, animeId, username, body)
 )
+//body---
+// {    "anime": {
+//         "username": "nerd",
+//         "title": "cowbody bebop",
+//         "ranking": 1,
+//         "image": "....",
+//         "thumb":"...",
+//         "synopsis": "one piece is popular"
+// }
+// }
+
+export const removeAnimeFromCollectionThunk = createAsyncThunk(
+    'collections/removeAnimeFromCollection',
+    async ({collectionId, animeId, username}) => {
+        await service.removeAnimeFromCollection(collectionId, animeId, username)
+        return animeId;
+    }
+)
+
+
 
