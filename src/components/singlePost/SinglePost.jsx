@@ -1,18 +1,34 @@
 import { Link } from "react-router-dom";
 import "./singlePost.css";
-import React from 'react';
+import React, {useEffect} from 'react';
+import {useParams} from 'react-router-dom'
+import {useDispatch, useSelector} from "react-redux";
+import {getAnimeDetailThunk} from "../../services/anime/anime-thunks";
 
 export default function SinglePost() {
+  const params = useParams();
+  const {id} = params;
+  const dispatch = useDispatch();
+
+  const {
+    animeDetail,
+    loadingDetail
+} = useSelector(state => state.anime);
+
+  useEffect(() => {
+    dispatch(getAnimeDetailThunk(id));
+  }, [dispatch])
+
   return (
     <div className="singlePost">
       <div className="singlePostWrapper">
         <img
           className="singlePostImg"
-          src="https://thecinemaholic.com/wp-content/uploads/2021/01/nezuu-e1638963260523.jpg"
+          src={animeDetail.image}
           alt=""
         />
         <h1 className="singlePostTitle">
-          Lorem ipsum dolor
+          {animeDetail.title}
           <div className="singlePostEdit">
             <i className="singlePostIcon far fa-edit"></i>
             <i className="singlePostIcon far fa-trash-alt"></i>
@@ -20,44 +36,31 @@ export default function SinglePost() {
         </h1>
         <div className="singlePostInfo">
           <span>
-            Author:
+            Ranking of All Animes:
             <b className="singlePostAuthor">
-              <Link className="link" to="/posts?username=Safak">
-                Safak
-              </Link>
+                {animeDetail.ranking}
             </b>
           </span>
-          <span>1 day ago</span>
+          <span>
+            Episodes:
+            {animeDetail.episodes}
+            </span>
         </div>
+        <div className="singlePostInfo">
+          <span>
+        Genres:
+            {animeDetail.genres}
+          </span>
+          <span>
+        Type:
+            {animeDetail.type}
+            </span>
+        </div>
+
         <p className="singlePostDesc">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste error
-          quibusdam ipsa quis quidem doloribus eos, dolore ea iusto impedit!
-          Voluptatum necessitatibus eum beatae, adipisci voluptas a odit modi
-          eos! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste
-          error quibusdam ipsa quis quidem doloribus eos, dolore ea iusto
-          impedit! Voluptatum necessitatibus eum beatae, adipisci voluptas a
-          odit modi eos! Lorem, ipsum dolor sit amet consectetur adipisicing
-          elit. Iste error quibusdam ipsa quis quidem doloribus eos, dolore ea
-          iusto impedit! Voluptatum necessitatibus eum beatae, adipisci voluptas
-          a odit modi eos! Lorem, ipsum dolor sit amet consectetur adipisicing
-          elit. Iste error quibusdam ipsa quis quidem doloribus eos, dolore ea
-          iusto impedit! Voluptatum necessitatibus eum beatae, adipisci voluptas
-          a odit modi eos! Lorem, ipsum dolor sit amet consectetur adipisicing
-          elit. Iste error quibusdam ipsa quis quidem doloribus eos, dolore ea
-          iusto impedit! Voluptatum necessitatibus eum beatae, adipisci voluptas
-          a odit modi eos!
           <br />
           <br />
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste error
-          quibusdam ipsa quis quidem doloribus eos, dolore ea iusto impedit!
-          Voluptatum necessitatibus eum beatae, adipisci voluptas a odit modi
-          eos! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste
-          error quibusdam ipsa quis quidem doloribus eos, dolore ea iusto
-          impedit! Voluptatum necessitatibus eum beatae, adipisci voluptas a
-          odit modi eos! Lorem, ipsum dolor sit amet consectetur adipisicing
-          elit. Iste error quibusdam ipsa quis quidem doloribus eos, dolore ea
-          iusto impedit! Voluptatum necessitatibus eum beatae, adipisci voluptas
-          a odit modi eos! Lorem, ipsum dolor sit amet consectetur.
+          {animeDetail.synopsis}
         </p>
       </div>
     </div>
