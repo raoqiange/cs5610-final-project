@@ -4,7 +4,7 @@ import React from 'react';
 
 export default function Posts() {
   return (
-    <div className="posts">
+    <div className="anime">
       <Post img="https://thecinemaholic.com/wp-content/uploads/2021/01/nezuu-e1638963260523.jpg" />
       <Post img="https://img.welt.de/img/kultur/kino/mobile239282749/6171629957-ci23x11-w1136/BELLE-Pressebilder-Weltstar-in-geheimer.jpg" />
       <Post img="https://www.lifewire.com/thmb/PpnJuquSid8GJ4rrxNsXe_nXqa4=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/anime-pokemon-5a191e1789eacc00372449e8-512c78337fbe42b2b6cd6280bb7a23f6.jpg"/>
