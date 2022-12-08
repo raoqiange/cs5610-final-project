@@ -6,6 +6,7 @@ import Profile from "./pages/settings/Settings";
 import Single from "./pages/single/Single";
 import Forum from "./pages/forum/Forum";
 import Search from "./pages/search/search";
+import CollectionPage from "./components/collections/CollectionPage";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import React from 'react';
 
@@ -59,6 +60,10 @@ function App() {
 
             <Route exact path="/search">
               <Search />
+            </Route>
+
+            <Route path="/collection/:collectionId">
+                <CollectionPage />
             </Route>
 
           </Switch>
