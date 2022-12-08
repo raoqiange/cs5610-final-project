@@ -38,7 +38,7 @@ const collectionReducer = createSlice({
             state.loadingCollections = false;
         },
         [deleteCollectionThunk.fulfilled]: (state, action) => {
-            state.collections.filter(collection => collection._id !== action.payload);
+            state.collections = state.collections.filter(collection => collection._id !== action.payload);
             state.loadingCollections = false;
         },
         [updateCollectionThunk.fulfilled]: (state, action) => {

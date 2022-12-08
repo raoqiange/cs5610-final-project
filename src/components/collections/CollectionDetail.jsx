@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {
     getAllAnimeByCollectionIdThunk, removeAnimeFromCollectionThunk, updateCollectionThunk,
 } from '../../services/collections/collection-thunks'
+import {Link} from "react-router-dom";
 
 const CollectionDetail = ({currentCollection}) => {
     const [collectionName, setCollectionName] = useState(currentCollection.name);
@@ -36,14 +37,13 @@ const CollectionDetail = ({currentCollection}) => {
 
     return (
         <div>
-            {!isEditing && collectionName &&
+            <h1>Collection Name:</h1>
+            {!isEditing &&
                 <>
-                    <h1>Collection Name:</h1>
                     <div>
                         {collectionName}
                         <button onClick={()=> setEditing(true)}>Edit</button>
                     </div>
-
                 </>
             }
             {isEditing&&
@@ -61,8 +61,10 @@ const CollectionDetail = ({currentCollection}) => {
                 {!loadingAnimeInCollection &&
                     animeInCollection.map(anime =>
                         <li key={anime.anime_id}>
-                            <img src={anime.image}/>
-                            {anime.title}
+                            <Link to={`/post/${anime.anime_id}`}>
+                                <img src={anime.image}/>
+                                {anime.title}
+                            </Link>
                             <p>{anime.synopsis}</p>
                             <button onClick={()=> deleteAnimeFromCollectionHandler(anime.anime_id)}>X</button>
                         </li>
