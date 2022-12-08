@@ -1,10 +1,7 @@
-import {getCollectionByCollectionIdThunk} from "../../services/collections/collection-thunks";
 import React from "react";
-import {useDispatch} from "react-redux";
 import {Link} from "react-router-dom";
 
 const CollectionCard = ({collection}) => {
-    const dispatch = useDispatch();
 
     return (
         <div className="card" key={collection._id}>
