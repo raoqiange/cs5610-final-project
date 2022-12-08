@@ -49,5 +49,18 @@
   margin-top: 15px;
   cursor: pointer;
   text-align: center;
+  font-family: "Gill Sans", sans-serif;
+  font-size: 15px;
+  line-height: 19px;
+  color: black;
+  font-weight: 600;
+}
+
+.sidebarPara {
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: large;
+  font-family: "Gill Sans", sans-serif;
+  font-weight: 500;
 }
 
