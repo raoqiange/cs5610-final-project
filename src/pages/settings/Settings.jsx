@@ -1,6 +1,7 @@
 import "./settings.css";
 import Sidebar from "../../components/sidebar/Sidebar";
 import React from 'react';
+import CollectionList from "../../components/collections/CollectionList";
 
 export default function Settings() {
   return (
@@ -36,7 +37,9 @@ export default function Settings() {
           <button className="settingsSubmitButton" type="submit">Update</button>
         </form>
       </div>
+      <CollectionList />
       <Sidebar />
+
     </div>
   );
 }
