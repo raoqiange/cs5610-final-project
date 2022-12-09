@@ -39,11 +39,11 @@ export default function Sidebar(props) {
                     <li className='sidebarListItem' onClick={() => navHandler('Adventure')}>
                         Adventure
                     </li>
-                    <li className='sidebarListItem' onClick={() => navHandler('Suspense')}>
-                        Suspense
-                    </li>
-                    <li className='sidebarListItem' onClick={() => navHandler('Mystery')}>
-                        Mystery
+                    {/*<li className='sidebarListItem' onClick={() => navHandler('Supernatural')}>*/}
+                    {/*    Supernatural*/}
+                    {/*</li>*/}
+                    {/*<li className='sidebarListItem' onClick={() => navHandler('Mystery')}>*/}
+                    {/*    Mystery*/}
                     </li>
                 </ul>
             </div>

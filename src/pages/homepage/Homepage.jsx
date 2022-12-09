@@ -31,6 +31,7 @@ export default function Homepage() {
         const newData = allAnimeList.filter((item) => item.genres.includes(type));
         setPostData(newData);
     };
+
     // anonymous user & admin => allAnime
     // fan & forum owner => recently reviewed anime
     return (
