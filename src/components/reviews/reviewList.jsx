@@ -47,7 +47,7 @@ const ReviewList = ({animeDetail}) => {
             {!loading && reviews.map(review=>
                 <div className="sideBySide">
                     <div className="review">
-                        <text style={{ color: "#1258c9"}}>Comment:</text> {review.comment} <span></span>
+                        <text style={{ color: "#1258c9"}}></text> {review.comment} <span></span>
                         <text style={{ color: "#1258c9"}}>Score:</text> {review.rating} <span></span>
                         <text style={{ color: "#1258c9"}}>User:</text> {review.username}
                     </div>
