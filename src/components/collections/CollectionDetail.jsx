@@ -56,15 +56,7 @@ const CollectionDetail = ({currentCollection}) => {
                     <button onClick={updateCollectionNameHandler}>Update</button>
                 </div>
             }
-
-
-
-
-
-
-
-
-
+            
             <div className="animeInCollection">
                 <div className="title">
                 <h1>Animes In this Collection: </h1>
@@ -72,14 +64,14 @@ const CollectionDetail = ({currentCollection}) => {
                 {loadingAnimeInCollection && '...loading anime in this collection'}
                 {!loadingAnimeInCollection &&
                     animeInCollection.map(anime =>
-                        <li key={anime.anime_id}>
+                        <div key={anime.anime_id}>
                             <Link to={`/post/${anime.anime_id}`}>
-                                <img src={anime.image}/>
+                                <img src={anime.image}/> <br/>
                                 {anime.title}
                             </Link>
-                            <p>{anime.synopsis}</p>
-                            <button onClick={()=> deleteAnimeFromCollectionHandler(anime.anime_id)}>X</button>
-                        </li>
+                            <button className="buttonStyleRemoveFromCollection" onClick={()=> deleteAnimeFromCollectionHandler(anime.anime_id)}>
+                                Remove this Anime</button>
+                        </div>
                     )
                 }
             </div>
