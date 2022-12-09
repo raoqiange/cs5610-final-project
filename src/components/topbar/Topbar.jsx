@@ -9,10 +9,8 @@ export default function Topbar() {
         currentUser,
     } = useSelector(state => state.users);
     const dispatch = useDispatch();
-    console.log(currentUser)
     const logoutClickHandler = () => {
         dispatch(userLogoutThunk());
-        window.open('/');
     }
     return (
         <div className="top">

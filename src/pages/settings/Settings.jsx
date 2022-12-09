@@ -4,9 +4,13 @@ import React, {useState} from 'react';
 import CollectionList from "../../components/collections/CollectionList";
 import {useDispatch, useSelector} from "react-redux";
 import {updateUserProfileByIdThunk, userProfileThunk} from "../../services/users/user-thunks";
+import Login from "../login/Login";
 
 export default function Settings() {
     const {currentUser} = useSelector(state => state.users);
+    if (!currentUser) {
+        return <Login/>
+    }
     console.log(currentUser)
     const dispatch = useDispatch();
     const updateProfileClickHandler = () => {
@@ -73,7 +77,7 @@ export default function Settings() {
                     {currentUser && currentUser.role === 'FORUM_AUTHOR' ?
                         <>
                             <label>Your forum limitations </label>
-                            <div type="text" defaultValue={currentUser && currentUser.forum_limitations}/>
+                            <input type="text" value={currentUser && currentUser.forum_limitations}/>
                         </> :
                         <></>
                     }

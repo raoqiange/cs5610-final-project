@@ -17,6 +17,8 @@ export default function Homepage() {
     const dispatch = useDispatch();
     const { allAnimeList, loadingAllAnime } = useSelector((state) => state.anime);
     const [postData, setPostData] = useState(allAnimeList);
+    const {currentUser} = useSelector(state => state.users)
+    console.log(currentUser)
 
     useEffect(() => {
         dispatch(getAllAnimeThunk());

@@ -16,6 +16,7 @@ import {
 const initialState = {
     currentUser: null,
     loading: false,
+    loginLoading: false,
     users: [],
     admin_users:[],
     fan_users:[],
@@ -32,31 +33,51 @@ const userReducer = createSlice({
         [userLoginThunk.fulfilled]: (state, action) => {
             state.currentUser = action.payload
             state.error = null
+            state.loginLoading = false
         },
         [userLoginThunk.rejected]: (state, action) => {
             state.error = action.payload
             console.log(state.error)
             state.currentUser = null
+            state.loginLoading = false
+        },
+        [userLoginThunk.pending]: (state, action) => {
+            state.loginLoading = true
         },
         [userRegisterThunk.fulfilled]: (state, action) => {
             state.currentUser = action.payload
             state.error = null
+            state.loading = false
         },
         [userRegisterThunk.rejected]: (state, action) => {
             state.error = action.payload
             state.currentUser = null
+            state.loading = false
         },
+        [userRegisterThunk.pending]: (state, action) => {
+            state.loading = true
+        },
+
         [userLogoutThunk.fulfilled]: (state, action) => {
             state.currentUser = null
             state.error = null
+            state.loading = false;
+        },
+        [userLogoutThunk.pending]: (state, action) => {
+            state.loading = true;
         },
         [userProfileThunk.fulfilled]: (state, action) => {
             state.currentUser = action.payload
-            state.error = null
+            state.error = null;
+            state.loading = false;
+        },
+        [userProfileThunk.pending]: (state, action) => {
+            state.loading = true;
         },
         [userProfileThunk.rejected]: (state, action) => {
             state.error = action.payload
             state.currentUser = null
+            state.loading = false;
         },
         [getAllUsersThunk.fulfilled]: (state, action) => {
             state.users = action.payload

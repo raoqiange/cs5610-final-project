@@ -3,14 +3,11 @@ import {Link} from "react-router-dom";
 import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {userRegisterThunk} from "../../services/users/user-thunks";
+import Profile from "../settings/Settings";
 
 export default function Register() {
     const {
         currentUser,
-        users,
-        fan_users,
-        admin_users,
-        author_users,
         loading
     } = useSelector(state => state.users);
     const dispatch = useDispatch();
@@ -27,10 +24,16 @@ export default function Register() {
         const newUser = {
             'username': document.getElementById('username').value,
             'password': document.getElementById('password').value,
-             'role': role
+             'role': role,
+            'forum_limitations': 10
         }
-        dispatch(userRegisterThunk(newUser));
-        {!loading && window.open('/profile')}
+        try {
+            dispatch(userRegisterThunk(newUser));
+        } catch (e) {
+        }
+    }
+    if (currentUser) {
+        return  <Profile />
     }
     return (
         <div className="register">

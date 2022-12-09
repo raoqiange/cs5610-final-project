@@ -3,12 +3,12 @@ import {Link} from "react-router-dom";
 import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {userLoginThunk} from "../../services/users/user-thunks";
+import Profile from "../settings/Settings";
 
 export default function Login() {
     const {
         currentUser,
-        error,
-        loading
+        loginLoading
     } = useSelector(state => state.users);
     const dispatch = useDispatch();
     const loginClickHandler = () => {
@@ -18,12 +18,15 @@ export default function Login() {
             'username': loginUsername,
             'password': loginPassword,
         }
-        dispatch(userLoginThunk(user));
-        {!loading && !currentUser && alert("Wrong username/password")}
-        {!loading && currentUser && window.open('/profile')}
-
+        try {
+            dispatch(userLoginThunk(user))
+        } catch (e) {
+        }
     }
-  return (
+    if (currentUser) {
+        return <Profile />
+    }
+    return (
     <div className="login">
       <span className="loginTitle">Login</span>
       <form className="loginForm">
