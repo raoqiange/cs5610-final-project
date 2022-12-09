@@ -28,6 +28,7 @@ const collectionReducer = createSlice({
         [getCollectionsByUsernameThunk.pending]: (state, action) => {
             state.collections = [];
             state.loadingCollections = true;
+            state.message = '';
         },
         [getCollectionsByUsernameThunk.fulfilled]: (state, action) => {
             state.collections = action.payload;
