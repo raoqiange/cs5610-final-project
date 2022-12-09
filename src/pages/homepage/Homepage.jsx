@@ -1,5 +1,5 @@
-import { useLocation } from 'react-router';
-import { useDispatch, useSelector } from 'react-redux';
+import {useLocation} from 'react-router';
+import {useDispatch, useSelector} from 'react-redux';
 import {
     getAllAnimeThunk,
     getAnimeDetailThunk,
@@ -9,13 +9,18 @@ import {
 import Header from '../../components/header/Header';
 import Posts from '../../components/posts/Posts';
 import Sidebar from '../../components/sidebar/Sidebar';
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import './homepage.css';
 import Post from '../../components/post/Post';
 
 export default function Homepage() {
     const dispatch = useDispatch();
-    const { allAnimeList, loadingAllAnime } = useSelector((state) => state.anime);
+    const {
+        allAnimeList,
+        loadingAllAnime,
+        recentlyReviewedAnimeList,
+        loadingRecentlyReviewedAnime
+    } = useSelector((state) => state.anime);
     const [postData, setPostData] = useState(allAnimeList);
     const {currentUser} = useSelector(state => state.users)
     console.log(currentUser)
@@ -23,10 +28,20 @@ export default function Homepage() {
     useEffect(() => {
         dispatch(getAllAnimeThunk());
     }, [dispatch]);
+    if (currentUser) {
+        useEffect(() => {
+            dispatch(getRecentlyReviewedAnimeByUsernameThunk(currentUser.username));
+        }, []);
+    }
 
     console.log(allAnimeList);
+    console.log(recentlyReviewedAnimeList)
     useEffect(() => {
-        setPostData(allAnimeList);
+        if (currentUser) {
+            setPostData(recentlyReviewedAnimeList);
+        } else {
+            setPostData(allAnimeList);
+        }
     }, [allAnimeList]);
 
     const filterPost = (type) => {
@@ -38,25 +53,25 @@ export default function Homepage() {
     // fan & forum owner => recently reviewed anime
     return (
         <>
-            <Header />
+            <Header/>
             <div className='home'>
                 <div className='anime'>
                     {!loadingAllAnime &&
-                        postData.map((anime) => (
-                            <div key={anime._id}>
-                                {' '}
-                                <Post
-                                    img={anime.image}
-                                    id={anime._id}
-                                    title={anime.title}
-                                    synopsis={anime.synopsis}
-                                    status={anime.status}
-                                    genres={anime.genres}
-                                />{' '}
-                            </div>
-                        ))}
+                    postData.map((anime) => (
+                        <div key={anime._id}>
+                            {' '}
+                            <Post
+                                img={anime.image}
+                                id={anime._id}
+                                title={anime.title}
+                                synopsis={anime.synopsis}
+                                status={anime.status}
+                                genres={anime.genres}
+                            />{' '}
+                        </div>
+                    ))}
                 </div>
-                <Sidebar filterPost={(type) => filterPost(type)} />
+                <Sidebar filterPost={(type) => filterPost(type)}/>
             </div>
         </>
     );

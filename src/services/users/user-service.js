@@ -37,8 +37,8 @@ export const getAllAdminUsers = async () => {
     return response.data
 }
 
-export const getUserById = async (UserId) => {
-    const response = await axios.delete(`${USER_API_URL}/${UserId}`)
+export const getUserByName = async (username) => {
+    const response = await axios.get(`${USER_API_URL}/public/${username}`)
     return response.data
 }
 export const deleteUserById = async (UserId) => {
