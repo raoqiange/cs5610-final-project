@@ -24,7 +24,7 @@ const CollectionTest = () => {
             <div className="flex-break"></div>
         <div className="collectionList">
             <div>
-                <input placeholder="Type a Colletion Name" type='text' value={newCollectionName} onChange={(e) => setNewCollectionName(e.target.value)}/>
+                <input style={{width: "210px"}} placeholder="Type a Colletion Name" type='text' value={newCollectionName} onChange={(e) => setNewCollectionName(e.target.value)}/>
                 <button className="buttonStyle" onClick={()=>dispatch(createCollectionThunk({fan_username: currentUser, name: newCollectionName}))}>
                     Add a new Collection
                 </button>
