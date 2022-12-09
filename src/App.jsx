@@ -16,14 +16,16 @@ import animeReducer from "./services/anime/anime-reducer";
 import Test from "./components/test/test";
 import UserTest from "./components/test/userTest";
 import CollectionTest from "./components/test/collectionTest";
+import ForumPostsTest from "./components/test/postsTest";
 import userReducer from "./services/users/user-reducer";
 import collectionReducer from "./services/collections/collection-reducer";
 import reviewReducer from "./services/reviews/review-reducer";
+import forumPostsReducer from "./services/forum/forum-post-reducer";
 
 function App() {
   const hasUser = true;
   const store = configureStore({
-    reducer: {anime: animeReducer, users: userReducer, collections: collectionReducer, reviews: reviewReducer}
+    reducer: {anime: animeReducer, users: userReducer, collections: collectionReducer, reviews: reviewReducer, posts: forumPostsReducer}
   });
 
   return (
@@ -40,6 +42,9 @@ function App() {
             </Route>
             <Route exact path="/collectiontest">
               <CollectionTest />
+            </Route>
+            <Route exact path="/forumPostsTest">
+              <ForumPostsTest />
             </Route>
             <Route exact path="/">
               <Homepage />
