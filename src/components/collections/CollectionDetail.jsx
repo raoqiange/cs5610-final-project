@@ -56,7 +56,10 @@ const CollectionDetail = ({currentCollection}) => {
                     <button onClick={updateCollectionNameHandler}>Update</button>
                 </div>
             }
-            
+
+            <div className="horizontal_line"></div>
+
+
             <div className="animeInCollection">
                 <div className="title">
                 <h1>Animes In this Collection: </h1>

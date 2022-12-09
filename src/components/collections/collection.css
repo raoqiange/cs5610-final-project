@@ -113,3 +113,11 @@ img {
 .animeInCollection {
     margin-top: 60px;
 }
+
+.horizontal_line {
+    background-color: dodgerblue;
+    width: 90%;
+    height: 5px;
+    line-height: 20px;
+    margin-top: 40px;
+}
