@@ -37,6 +37,7 @@ const CollectionDetail = ({currentCollection}) => {
 
     return (
         <div className="marginAll">
+            <div className="marginInside">
             <div className="title">
             <h1>Collection Name:</h1>
                 </div>
@@ -77,6 +78,7 @@ const CollectionDetail = ({currentCollection}) => {
                         </div>
                     )
                 }
+            </div>
             </div>
         </div>
     )
