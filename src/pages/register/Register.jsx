@@ -43,8 +43,8 @@ export default function Register() {
         <input id="username" className="registerInput" type="text" placeholder="Please enter your username here" />
         <label>Password</label>
         <input id="password" className="registerInput" type="password" placeholder="Please enter your password here" />
-          <lable for="user-type">Choose user type</lable>
-          <select id="user-type">
+          <lable for="user-type" className="registerForm">Choose user type</lable>
+          <select id="user-type" className="registerOption">
               <option value="1">Fan User</option>
               <option value="2">Forum Author</option>
               <option value="3">Admin</option>
