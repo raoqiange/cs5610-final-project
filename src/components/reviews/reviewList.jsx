@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {createReviewThunk, deleteReviewThunk} from "../../services/reviews/review-thunks";
 import "./review.css";
+import {Link} from "react-router-dom";
 
 const ReviewList = ({animeDetail}) => {
     const {
@@ -49,7 +50,9 @@ const ReviewList = ({animeDetail}) => {
                     <div className="review">
                         <text style={{ color: "#1258c9"}}></text> {review.comment} <span></span>
                         <text style={{ color: "#1258c9"}}>Score:</text> {review.rating} <span></span>
-                        <text style={{ color: "#1258c9"}}>User:</text> {review.username}
+                        <text style={{ color: "#1258c9"}}>User:</text>
+                        <Link to={'/public/' + review.username}>{review.username}</Link>
+
                     </div>
                     {((currentUser && review.username === currentUser.username) || (currentUser && currentUser.role === 'ADMIN')) &&
                         <button className="buttonStyleDelete"

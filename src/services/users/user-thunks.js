@@ -37,9 +37,10 @@ export const getAllAuthorsThunk = createAsyncThunk(
     '/getAllForumAuthors',
     async () => await service.getAllAuthorUsers()
 )
-export const getUserByIdThunk = createAsyncThunk(
-    '/findUser',
-    async (userId) => await service.getUserById(userId)
+
+export const getUserByUsernameThunk = createAsyncThunk(
+    '/findUserByUsername',
+    async (username) => await service.getUserByName(username)
 )
 export const deleteUserByIdThunk = createAsyncThunk(
     '/deleteUser',

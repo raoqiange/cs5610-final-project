@@ -51,6 +51,7 @@
   border: none;
   border-radius: 10px;
   text-align: center;
+  margin-left: 20px;
 }
 
 .registerLoginButton {
@@ -63,4 +64,15 @@
   border: none;
   color: white;
   border-radius: 10px;
+
+}
+
+.registerOption{
+  padding: 10px;
+  background-color: white;
+  border: none;
+  border-radius: 10px;
+  width: 320px;
+  margin-left: 20px;
+  margin-top: 20px;
 }
