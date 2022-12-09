@@ -58,15 +58,15 @@ export default function Settings() {
                         />
                     </div>
                     <label>Username</label>
-                    <input style={{width: "210px"}} type="text" value={currentUser && currentUser.username} name="name"/>
+                    <input style={{width: "340px"}} type="text" value={currentUser && currentUser.username} name="name"/>
                     <label>Password</label>
-                    <input style={{width: "210px"}} type="password" defaultValue={currentUser && currentUser.password} name="password"
+                    <input style={{width: "340px"}} type="password" defaultValue={currentUser && currentUser.password} name="password"
                            id="new-password"/>
 
                     {currentUser && currentUser.role === 'FAN' ?
                         <>
                             <label>Your favorite anime genre</label>
-                            <input  style={{width: "210px"}} id="new-fav-genre" type="text"
+                            <input  style={{width: "340px"}} id="new-fav-genre" type="text"
                                    defaultValue={currentUser && currentUser.favorite_genre}/> </> :
                         <></>
                     }
@@ -80,7 +80,7 @@ export default function Settings() {
                     {currentUser && currentUser.role === 'ADMIN' ?
                         <>
                             <label>Your email</label>
-                            <input style={{width: "210px"}} id="new-email" type="text" defaultValue={currentUser && currentUser.email}/> </> :
+                            <input style={{width: "340px"}} id="new-email" type="text" defaultValue={currentUser && currentUser.email}/> </> :
                         <></>
                     }
                     <button className="settingsSubmitButton" onClick={updateProfileClickHandler}>Update
