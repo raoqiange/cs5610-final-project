@@ -23,15 +23,17 @@ import collectionReducer from "./services/collections/collection-reducer";
 import reviewReducer from "./services/reviews/review-reducer";
 import forumPostsReducer from "./services/forum/forum-post-reducer";
 import forumCommentsReducer from "./services/forum/forum-comment-reducer";
+import CurrentUser from "./services/users/current-user";
 
 function App() {
-  const hasUser = true;
+  const hasUser = false;
   const store = configureStore({
     reducer: {anime: animeReducer, users: userReducer, collections: collectionReducer, reviews: reviewReducer, posts: forumPostsReducer, comments: forumCommentsReducer}
   });
 
   return (
       <Provider store={store}>
+        <CurrentUser>
         <Router>
           <Topbar />
           <Switch>
@@ -57,17 +59,16 @@ function App() {
             <Route path="/posts">
               <Homepage />
             </Route>
-            <Route path="/register">
-              {hasUser ? <Homepage /> : <Register />}
+            <Route path="/register"><Register />}
             </Route>
-            <Route path="/login">{hasUser ? <Homepage /> : <Login />}</Route>
+            <Route path="/login"><Login /></Route>
             <Route path="/post/:id">
               <Single />
             </Route>
-            <Route path="/forum">{hasUser ? <Forum /> : <Login />}</Route>
+            <Route path="/forum"><Forum />}</Route>
             {/*<Route path = "/forum/:id"><Post/></Route>*/}
             <Route path="/Profile">
-              {hasUser ? <Profile /> : <Login />}
+              <Profile />
             </Route>
 
             <Route exact path="/search">
@@ -80,6 +81,7 @@ function App() {
 
           </Switch>
         </Router>
+        </CurrentUser>
       </Provider>
   );
 }

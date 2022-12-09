@@ -8,6 +8,7 @@ import {
     getAllFanUsersThunk,
     getAllAdminUsersThunk,
     getAllAuthorsThunk,
+    updateUserProfileByIdThunk,
     getUserByIdThunk,
     deleteUserByIdThunk
 } from "./user-thunks";
@@ -30,13 +31,16 @@ const userReducer = createSlice({
     extraReducers: {
         [userLoginThunk.fulfilled]: (state, action) => {
             state.currentUser = action.payload
+            state.error = null
         },
         [userLoginThunk.rejected]: (state, action) => {
             state.error = action.payload
+            console.log(state.error)
             state.currentUser = null
         },
         [userRegisterThunk.fulfilled]: (state, action) => {
             state.currentUser = action.payload
+            state.error = null
         },
         [userRegisterThunk.rejected]: (state, action) => {
             state.error = action.payload
@@ -44,9 +48,11 @@ const userReducer = createSlice({
         },
         [userLogoutThunk.fulfilled]: (state, action) => {
             state.currentUser = null
+            state.error = null
         },
         [userProfileThunk.fulfilled]: (state, action) => {
             state.currentUser = action.payload
+            state.error = null
         },
         [userProfileThunk.rejected]: (state, action) => {
             state.error = action.payload
@@ -54,15 +60,28 @@ const userReducer = createSlice({
         },
         [getAllUsersThunk.fulfilled]: (state, action) => {
             state.users = action.payload
+            state.error = null
         },
         [getAllAdminUsersThunk.fulfilled]: (state, action) => {
             state.admin_users = action.payload
+            state.error = null
         },
         [getAllFanUsersThunk.fulfilled]: (state, action) => {
             state.fan_users = action.payload
+            state.error = null
         },
         [getAllAuthorsThunk.fulfilled]: (state, action) => {
             state.author_users = action.payload
+            state.error = null
+        },
+        [updateUserProfileByIdThunk.fulfilled]: (state, action) => {
+            state.currentUser = {
+                ...state.currentUser,
+                ...action.payload
+            }
+            console.log("newProfile in reducer")
+            console.log(state.currentUser)
+            state.error = null
         }
     }
 })

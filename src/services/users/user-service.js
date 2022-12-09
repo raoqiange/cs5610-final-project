@@ -45,3 +45,8 @@ export const deleteUserById = async (UserId) => {
     const response = await axios.delete(`${USER_API_URL}/${UserId}`)
     return response.data
 }
+
+export const updateUserProfileById = async (UserId, user) => {
+    const response = await api.put(`${USER_API_URL}/${UserId}`, user)
+    return response.data;
+}
