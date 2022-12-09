@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {createReviewThunk, deleteReviewThunk} from "../../services/reviews/review-thunks";
+import "./review.css";
 
 const ReviewList = ({animeDetail}) => {
     const currentUser = 'tom';
@@ -42,14 +43,14 @@ const ReviewList = ({animeDetail}) => {
     return (
         <>
             {!loading && reviews.map(review=>
-                <div>
-                    <div>
-                        Comment: {review.comment}
-                        Score: {review.rating}
-                        user: {review.username}
+                <div className="sideBySide">
+                    <div className="review">
+                        <text style={{ color: "#1258c9"}}>Comment:</text> {review.comment} <span></span>
+                        <text style={{ color: "#1258c9"}}>Score:</text> {review.rating} <span></span>
+                        <text style={{ color: "#1258c9"}}>User:</text> {review.username}
                     </div>
                     {review.username === currentUser &&
-                        <button
+                        <button className="buttonStyleDelete"
                             onClick={()=>dispatch(deleteReviewThunk({reviewId: review._id, username: currentUser}))}
                         >
                             Delete
@@ -58,13 +59,13 @@ const ReviewList = ({animeDetail}) => {
             )}
 
             {currentUser &&
-                <form>
+                <form className="sideBySideSubmit">
                     <textarea required placeholder='Write your comment...' onChange={(e)=>setComment(e.target.value)}>
                         {comment}
                     </textarea>
-                    <label id='score'>Score: </label>
-                    <input htmlFor='score' type='number' min='1' max='10' onChange={(e)=>setSore(e.target.value)}/>
-                    <button onClick={(e)=>createReviewHandler(e)}>Submit Review</button>
+
+                    <input placeholder="Rate 1 to 10" htmlFor='score' type='number' min='1' max='10' onChange={(e)=>setSore(e.target.value)}/>
+                    <button className="buttonStyleSubmit" onClick={(e)=>createReviewHandler(e)}>Submit Review</button>
                 </form>
             }
         </>
