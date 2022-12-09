@@ -13,8 +13,8 @@ export const createReviewThunk = createAsyncThunk(
 
 export const deleteReviewThunk = createAsyncThunk(
     'review/deleteReview',
-    async (reviewId) => {
-        await service.deleteReview(reviewId)
+    async ({reviewId, username}) => {
+        await service.deleteReview(reviewId, username)
         return reviewId;
     }
 )

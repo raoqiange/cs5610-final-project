@@ -28,8 +28,8 @@ export const createReview = async (animeId, body) => {
 // }
 // }
 
-export const deleteReview = async (reviewId) => {
-    const response = await axios.delete(`${REVIEW_API}/reviews/${reviewId}`);
+export const deleteReview = async (reviewId, username) => {
+    const response = await axios.delete(`${REVIEW_API}/reviews/${reviewId}?username=${username}`);
     return response.data;
 }
 

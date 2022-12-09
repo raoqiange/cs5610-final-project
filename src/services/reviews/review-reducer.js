@@ -31,3 +31,5 @@ const reviewReducer = createSlice({
         }
     }
 })
+
+export default reviewReducer.reducer;

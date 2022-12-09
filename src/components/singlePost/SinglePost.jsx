@@ -4,6 +4,8 @@ import {useParams} from 'react-router-dom'
 import {useDispatch, useSelector} from "react-redux";
 import {getAnimeDetailThunk} from "../../services/anime/anime-thunks";
 import {addAnimeToCollectionThunk, getCollectionsByUsernameThunk} from "../../services/collections/collection-thunks";
+import {getReviewsByAnimeIdThunk} from "../../services/reviews/review-thunks";
+import ReviewList from "../reviews/reviewList";
 
 export default function SinglePost() {
   const currentUser = "tom"; //now hardcoded need to identify user later
@@ -24,7 +26,8 @@ export default function SinglePost() {
 
   useEffect(() => {
     dispatch(getAnimeDetailThunk(id));
-    dispatch(getCollectionsByUsernameThunk(currentUser))
+    dispatch(getCollectionsByUsernameThunk(currentUser));
+    dispatch(getReviewsByAnimeIdThunk(id));
   }, [dispatch])
 
   const addAnimeToCollectionHandler = (collectionId, animeDetail) => {
@@ -117,6 +120,8 @@ export default function SinglePost() {
           {animeDetail.synopsis}
         </p>
       </div>
+
+      <ReviewList animeDetail={animeDetail}/>
     </div>
   );
 }

@@ -18,11 +18,12 @@ import UserTest from "./components/test/userTest";
 import CollectionTest from "./components/test/collectionTest";
 import userReducer from "./services/users/user-reducer";
 import collectionReducer from "./services/collections/collection-reducer";
+import reviewReducer from "./services/reviews/review-reducer";
 
 function App() {
   const hasUser = true;
   const store = configureStore({
-    reducer: {anime: animeReducer, users: userReducer, collections: collectionReducer}
+    reducer: {anime: animeReducer, users: userReducer, collections: collectionReducer, reviews: reviewReducer}
   });
 
   return (
