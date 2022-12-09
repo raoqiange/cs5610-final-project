@@ -9,29 +9,31 @@ import {
     getAllAdminUsersThunk,
     getAllAuthorsThunk,
     updateUserProfileByIdThunk,
-    getUserByIdThunk,
+    getUserByUsernameThunk,
     deleteUserByIdThunk
 } from "./user-thunks";
+import {getUserByName} from "./user-service";
 
 const initialState = {
     currentUser: null,
     loading: false,
     getUsersLoading: false,
     getFansLoading: false,
-    getAuthorsLoading:false,
+    getAuthorsLoading: false,
     loginLoading: false,
+    deleteUserLoading: false,
     users: [],
-    admin_users:[],
-    fan_users:[],
-    author_users:[],
-    error: null
+    admin_users: [],
+    fan_users: [],
+    author_users: [],
+    error: null,
+    user: null
 }
 
 const userReducer = createSlice({
     name: 'users',
     initialState,
-    reducers: {
-    },
+    reducers: {},
     extraReducers: {
         [userLoginThunk.fulfilled]: (state, action) => {
             state.currentUser = action.payload
@@ -122,6 +124,23 @@ const userReducer = createSlice({
             console.log("newProfile in reducer")
             console.log(state.currentUser)
             state.error = null
+        },
+        [getUserByUsernameThunk.fulfilled]: (state, action) => {
+            state.user = action.payload;
+        },
+        [deleteUserByIdThunk.fulfilled]: (state, action) => {
+            state.users = state.users.filter(c => c._id !== action.payload)
+            state.fan_users = state.fan_users.filter(c => c._id !== action.payload)
+            state.author_users = state.author_users.filter(c => c._id !== action.payload)
+        },
+        [deleteUserByIdThunk.pending]: (state, action) => {
+            state.users = state.users.filter(c => c._id !== action.payload)
+            state.fan_users = state.fan_users.filter(c => c._id !== action.payload)
+            state.author_users = state.author_users.filter(c => c._id !== action.payload)
+            state.deleteUserLoading = false;
+        },
+        [deleteUserByIdThunk.pending]: (state, action) => {
+            state.deleteUserLoading = true;
         }
     }
 })

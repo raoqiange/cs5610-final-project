@@ -44,49 +44,49 @@ export default function Homepage() {
         <>
             <Header />
             {currentUser && currentUser.role !== "ADMIN" &&
-                <>
-                    <h2 className='text-title'>You've recently reviewed these anime...</h2>
-                    <div className='anime'>
-                        {!loadingRecentlyReviewedAnime && recentlyReviewedAnimeList.length !== 0 &&
-                            recentlyReviewedAnimeList.map((anime) => (
-                                <div key={anime.anime_id}>
-                                    {' '}
-                                    <Post
-                                        img={anime.image}
-                                        id={anime.anime_id}
-                                        title={anime.title}
-                                        synopsis={anime.synopsis}
-                                    />{' '}
-                                </div>
-                            ))}
-                        {!loadingRecentlyReviewedAnime && recentlyReviewedAnimeList.length === 0 &&
-                            <>
-                                <h2 className='no-history-text'>Looks like you don't have review history...</h2>
-                                <img className="charging-img" src="https://media.tenor.com/zoWAtwWVq4AAAAAC/miku-anime.gif"/>
-                            </>
+            <>
+                <h2 className='text-title'>You've recently reviewed these anime...</h2>
+                <div className='anime'>
+                    {!loadingRecentlyReviewedAnime && recentlyReviewedAnimeList.length !== 0 &&
+                    recentlyReviewedAnimeList.map((anime) => (
+                        <div key={anime.anime_id}>
+                            {' '}
+                            <Post
+                                img={anime.image}
+                                id={anime.anime_id}
+                                title={anime.title}
+                                synopsis={anime.synopsis}
+                            />{' '}
+                        </div>
+                    ))}
+                    {!loadingRecentlyReviewedAnime && recentlyReviewedAnimeList.length === 0 &&
+                    <>
+                        <h2 className='no-history-text'>Looks like you don't have review history...</h2>
+                        <img className="charging-img" src="https://media.tenor.com/zoWAtwWVq4AAAAAC/miku-anime.gif"/>
+                    </>
 
-                        }
-                    </div>
-                    <h2 className='text-title'>Start Exploring All Anime....</h2>
-                </>
+                    }
+                </div>
+                <h2 className='text-title'>Start Exploring All Anime....</h2>
+            </>
             }
             <div className='home'>
                 {/*display for all users*/}
                 <div className='anime'>
                     {!loadingAllAnime &&
-                        postData.map((anime) => (
-                            <div key={anime._id}>
-                                {' '}
-                                <Post
-                                    img={anime.image}
-                                    id={anime._id}
-                                    title={anime.title}
-                                    synopsis={anime.synopsis}
-                                    status={anime.status}
-                                    genres={anime.genres}
-                                />{' '}
-                            </div>
-                        ))}
+                    postData.map((anime) => (
+                        <div key={anime._id}>
+                            {' '}
+                            <Post
+                                img={anime.image}
+                                id={anime._id}
+                                title={anime.title}
+                                synopsis={anime.synopsis}
+                                status={anime.status}
+                                genres={anime.genres}
+                            />{' '}
+                        </div>
+                    ))}
                 </div>
                 <Sidebar filterPost={(type) => filterPost(type)} />
             </div>
