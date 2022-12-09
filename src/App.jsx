@@ -24,6 +24,7 @@ import reviewReducer from "./services/reviews/review-reducer";
 import forumPostsReducer from "./services/forum/forum-post-reducer";
 import forumCommentsReducer from "./services/forum/forum-comment-reducer";
 import CurrentUser from "./services/users/current-user";
+import Manage from "./pages/manage/manage";
 
 function App() {
   const hasUser = false;
@@ -69,6 +70,9 @@ function App() {
             {/*<Route path = "/forum/:id"><Post/></Route>*/}
             <Route path="/Profile">
               <Profile />
+            </Route>
+            <Route path="/manage">
+              <Manage/>
             </Route>
 
             <Route exact path="/search">

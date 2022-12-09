@@ -16,6 +16,9 @@ import {
 const initialState = {
     currentUser: null,
     loading: false,
+    getUsersLoading: false,
+    getFansLoading: false,
+    getAuthorsLoading:false,
     loginLoading: false,
     users: [],
     admin_users:[],
@@ -33,16 +36,16 @@ const userReducer = createSlice({
         [userLoginThunk.fulfilled]: (state, action) => {
             state.currentUser = action.payload
             state.error = null
-            state.loginLoading = false
+            state.loading = false
         },
         [userLoginThunk.rejected]: (state, action) => {
             state.error = action.payload
             console.log(state.error)
             state.currentUser = null
-            state.loginLoading = false
+            state.loading = false
         },
         [userLoginThunk.pending]: (state, action) => {
-            state.loginLoading = true
+            state.loading = true
         },
         [userRegisterThunk.fulfilled]: (state, action) => {
             state.currentUser = action.payload
@@ -82,18 +85,34 @@ const userReducer = createSlice({
         [getAllUsersThunk.fulfilled]: (state, action) => {
             state.users = action.payload
             state.error = null
+            state.getUsersLoading = false
+        },
+        [getAllUsersThunk.pending]: (state, action) => {
+            state.getUsersLoading = true
         },
         [getAllAdminUsersThunk.fulfilled]: (state, action) => {
+            state.admin_users = action.payload
+            state.error = null
+        },
+        [getAllAdminUsersThunk.pending]: (state, action) => {
             state.admin_users = action.payload
             state.error = null
         },
         [getAllFanUsersThunk.fulfilled]: (state, action) => {
             state.fan_users = action.payload
             state.error = null
+            state.getFansLoading = false
+        },
+        [getAllFanUsersThunk.pending]: (state, action) => {
+            state.getFansLoading = true
         },
         [getAllAuthorsThunk.fulfilled]: (state, action) => {
             state.author_users = action.payload
             state.error = null
+            state.getAuthorsLoading = false
+        },
+        [getAllAuthorsThunk.pending]: (state, action) => {
+            state.getAuthorsLoading = true
         },
         [updateUserProfileByIdThunk.fulfilled]: (state, action) => {
             state.currentUser = {
