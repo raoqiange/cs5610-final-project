@@ -2,6 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 import {deleteCollectionThunk} from "../../services/collections/collection-thunks";
 import {useDispatch} from "react-redux";
+import './collection.css';
 
 const CollectionCard = ({collection}) => {
     const dispatch = useDispatch();
@@ -13,7 +14,7 @@ const CollectionCard = ({collection}) => {
                     <h4><b>{collection.name}</b></h4>
                 </div>
             </Link>
-            <button onClick={()=>dispatch(deleteCollectionThunk(collection._id))}>Delete</button>
+            <button className="buttonStyleDelete" onClick={()=>dispatch(deleteCollectionThunk(collection._id))}>Delete</button>
         </div>
     )
 }

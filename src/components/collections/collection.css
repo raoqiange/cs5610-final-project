@@ -37,6 +37,24 @@ img {
     align-items: center;
 }
 
+.buttonStyleDelete {
+    align-self: center;
+    width: 60px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    background-color: lightskyblue;
+    padding: 10px;
+    margin-top: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
 .buttonStyle:hover {
+    background-color: steelblue;
+}
+
+.buttonStyleDelete:hover {
     background-color: steelblue;
 }
