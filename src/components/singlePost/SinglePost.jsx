@@ -62,8 +62,8 @@ export default function SinglePost() {
           <div className="singlePostEdit">
             {currentUser &&
               <>
-                <i className="singlePostIcon far fa-plus-square"></i>
 
+                <i className="singlePostIcon far fa-plus-square"></i>
                 <select name="collections" id="collections" onChange={(e)=> addAnimeToCollectionHandler(e.target.value, animeDetail)}>
                   <option value="Collections" selected disabled hidden>Add To My Collections</option>
                   {!loadingCollections && collections.map(collection =>
@@ -80,8 +80,6 @@ export default function SinglePost() {
               </>
             }
 
-            <i className="singlePostIcon far fa-edit"></i>
-            <i className="singlePostIcon far fa-trash-alt"></i>
           </div>
         </h1>
         <div className="singlePostInfo">

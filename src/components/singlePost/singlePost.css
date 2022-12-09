@@ -33,15 +33,9 @@
 
 .singlePostIcon {
   margin-left: 10px;
-  cursor: pointer;
 }
 
-.singlePostIcon:first-child {
-  color: dodgerblue;
-}
-.singlePostIcon:last-child {
-  color: black;
-}
+
 
 .singlePostInfo {
   margin-bottom: 20px;
