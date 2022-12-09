@@ -23,7 +23,13 @@ const Search = () => {
                 <form action="details.html"></form>
                 <input className="loginInput" type='text' placeholder="Please enter the anime you want to search here"
                        value={searchAnime} onChange={(e)=> setSearchAnime(e.target.value)}/>
-                <button className="searchButton" onClick={()=>dispatch(searchAnimeThunk(searchAnime))}>Search</button>
+                <button className="searchButton" onClick={()=>{
+                    if (searchAnime!="") {
+                        dispatch(searchAnimeThunk(searchAnime))
+                    } else {
+                        alert('The Input Content Cannot Be Empty')
+                    }
+                }}>Search</button>
                 {loadingSearchedAnime && "...loading searched anime"}
                 {!loadingSearchedAnime && searchedAnimeList.map(anime =>
                     <div className="anime" key={anime._id}> <Post img={anime.image} id={anime._id}
