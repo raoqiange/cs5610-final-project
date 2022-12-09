@@ -8,3 +8,22 @@
   flex-wrap: wrap;
   margin: 20px;
 }
+
+.no-history-text {
+  font-family: fantasy;
+  color: #be9656;
+}
+
+.text-title {
+  font-family: Comic Sans MS;
+  text-transform: uppercase;
+  font-weight: bolder;
+  margin-top: 15px;
+  margin-left: 15px;
+  color: #444444;
+}
+
+.charging-img {
+  width: 30%;
+  align-items: center;
+}
