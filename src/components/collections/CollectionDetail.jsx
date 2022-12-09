@@ -6,11 +6,11 @@ import {
 } from '../../services/collections/collection-thunks'
 import {Link} from "react-router-dom";
 
-const CollectionDetail = ({currentCollection}) => {
+const CollectionDetail = ({currentCollection, currentUser}) => {
     const [collectionName, setCollectionName] = useState(currentCollection.name);
     const [isEditing, setEditing] = useState(false);
     const dispatch = useDispatch();
-    const currentUser = 'tom';
+
     const {
         animeInCollection,
         loadingAnimeInCollection
@@ -18,7 +18,7 @@ const CollectionDetail = ({currentCollection}) => {
 
     useEffect(()=> {
         const collectionId = currentCollection._id;
-        const username = currentUser;
+        const username = currentUser.username;
         dispatch(getAllAnimeByCollectionIdThunk({collectionId, username}))
     }, [dispatch, currentCollection._id])
 
@@ -31,7 +31,7 @@ const CollectionDetail = ({currentCollection}) => {
 
     const deleteAnimeFromCollectionHandler = (animeId) => {
         const collectionId = currentCollection._id;
-        const username = currentUser;
+        const username = currentUser.username;
         dispatch(removeAnimeFromCollectionThunk({collectionId, animeId, username}))
     }
 

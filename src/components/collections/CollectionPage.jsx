@@ -13,6 +13,10 @@ const CollectionPage= () => {
         loadingCollection
     } = useSelector(state => state.collections);
 
+    const {
+        currentUser,
+    } = useSelector(state=> state.users);
+
     useEffect(()=> {
         if(collectionId) {
             dispatch(getCollectionByCollectionIdThunk(collectionId));
@@ -21,7 +25,8 @@ const CollectionPage= () => {
 
     return (
         <>
-            {!loadingCollection && <CollectionDetail currentCollection={currentCollection}/>}
+            {!loadingCollection && currentUser &&
+                <CollectionDetail currentCollection={currentCollection} currentUser={currentUser}/>}
         </>
     )
 }

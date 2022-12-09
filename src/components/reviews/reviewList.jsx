@@ -4,8 +4,9 @@ import {createReviewThunk, deleteReviewThunk} from "../../services/reviews/revie
 import "./review.css";
 
 const ReviewList = ({animeDetail}) => {
-    const currentUser = 'tom';
-
+    const {
+        currentUser,
+    } = useSelector(state=> state.users);
     const {
         reviews,
         loading
@@ -21,8 +22,9 @@ const ReviewList = ({animeDetail}) => {
     const createReviewHandler = (e) => {
         e.preventDefault()
         if (!comment || !score) return;
+        if (!currentUser) return;
         const anime = {
-            username: currentUser,
+            username: currentUser.username,
             title: animeDetail.title,
             ranking: animeDetail.ranking,
             image: animeDetail.image,
@@ -30,7 +32,7 @@ const ReviewList = ({animeDetail}) => {
             synopsis: animeDetail.synopsis
         }
         const review = {
-            username: currentUser,
+            username: currentUser.username,
             comment: comment,
             rating: score
         }
@@ -49,9 +51,9 @@ const ReviewList = ({animeDetail}) => {
                         <text style={{ color: "#1258c9"}}>Score:</text> {review.rating} <span></span>
                         <text style={{ color: "#1258c9"}}>User:</text> {review.username}
                     </div>
-                    {review.username === currentUser &&
+                    {((currentUser && review.username === currentUser.username) || (currentUser && currentUser.role === 'ADMIN')) &&
                         <button className="buttonStyleDelete"
-                            onClick={()=>dispatch(deleteReviewThunk({reviewId: review._id, username: currentUser}))}
+                            onClick={()=>dispatch(deleteReviewThunk({reviewId: review._id, username: review.username}))}
                         >
                             Delete
                         </button>}

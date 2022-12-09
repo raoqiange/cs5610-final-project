@@ -86,12 +86,18 @@ export default function Settings() {
                     <button className="settingsSubmitButton" onClick={updateProfileClickHandler}>Update
                     </button>
 
-                    <div className="settingsTitleMargin">
-                        <span className="settingsTitleUpdate">Create Your Own Collection</span>
-                    </div>
-                    <div className="collection">
-                        <CollectionList/>
-                    </div>
+                    {
+                        currentUser && currentUser.role !== "ADMIN" &&
+                        <>
+                            <div className="settingsTitleMargin">
+                                <span className="settingsTitleUpdate">My Collections...</span>
+                            </div>
+                            <div className="collection">
+                            <CollectionList/>
+                            </div>
+                        </>
+                    }
+
 
                 </form>
 

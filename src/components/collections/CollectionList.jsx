@@ -6,18 +6,27 @@ import {
 } from '../../services/collections/collection-thunks'
 import CollectionCard from "./CollectionCard";
 
-const CollectionTest = () => {
-    const currentUser = 'tom';
+const CollectionList = () => {
+
     const {
         collections,
         loadingCollections,
     } = useSelector(state => state.collections);
+    const {
+        currentUser,
+        loading
+    } = useSelector(state=> state.users);
+    console.log('test',currentUser);
+
+    // currentUser = 'tom';
     const dispatch = useDispatch();
     const [newCollectionName, setNewCollectionName] = useState('');
 
     useEffect(()=> {
-        dispatch(getCollectionsByUsernameThunk(currentUser))
-    }, [dispatch])
+        if (currentUser) {
+            dispatch(getCollectionsByUsernameThunk(currentUser.username))
+        }
+    }, [dispatch, currentUser])
 
     return (
         <>
@@ -28,7 +37,7 @@ const CollectionTest = () => {
                 <button className="buttonStyle"
                         onClick={(e)=>{
                             e.preventDefault();
-                            dispatch(createCollectionThunk({fan_username: currentUser, name: newCollectionName}))
+                            dispatch(createCollectionThunk({fan_username: currentUser.username, name: newCollectionName}))
                         }}>
                     Add a new Collection
                 </button>
@@ -43,4 +52,4 @@ const CollectionTest = () => {
     )
 }
 
-export default CollectionTest;
+export default CollectionList;
