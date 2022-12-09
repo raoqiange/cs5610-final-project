@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import "./topbar.css";
 import React from 'react';
 
@@ -7,22 +7,23 @@ export default function Topbar() {
   return (
     <div className="top">
       <div className="topCenter">
-        <ul className="topList">
-          <li className="topListItem"><Link className="link" to="/">HOME</Link></li>
-          <li className="topListItem">ABOUT</li>
-          <li className="topListItem"><Link className="link" to="/forum">FORUM</Link></li>
+        <nav className="topList">
+
+          <li className="topListItem"><NavLink className="link" exact to="/">HOME</NavLink></li>
+          {/*<li className="topListItem">ABOUT</li>*/}
+          <li className="topListItem"><NavLink className="link" to="/forum">FORUM</NavLink></li>
 
           {user ? (
-              <Link className="link" to="/profile">
+              <NavLink className="link" to="/profile">
                 <li className="topListItem">PROFILE</li>
-              </Link>
+              </NavLink>
           ) : (
               <ul className="topList">
                 <li className="topListItem">
-                  <Link className="link" to="/login">LOGIN</Link>
+                  <NavLink className="link" to="/login">LOGIN</NavLink>
                 </li>
                 <li className="topListItem">
-                  <Link className="link" to="/register">REGISTER</Link>
+                  <NavLink className="link" to="/register">REGISTER</NavLink>
                 </li>
               </ul>
           )}
@@ -30,9 +31,9 @@ export default function Topbar() {
           {user && <li className="topListItem">LOGOUT</li>}
 
             <li className="topListItem">
-                <Link className="link" to="/test">
+                <NavLink className="link" to="/test">
                     TEST
-                </Link>
+                </NavLink>
             </li>
 
             <li className="topListItem">
@@ -40,8 +41,7 @@ export default function Topbar() {
                     <i className="topSearchIcon fas fa-search"></i>
                 </Link>
             </li>
-            
-        </ul>
+        </nav>
       </div>
     </div>
   );
