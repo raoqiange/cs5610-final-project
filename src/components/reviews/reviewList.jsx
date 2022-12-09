@@ -64,7 +64,7 @@ const ReviewList = ({animeDetail}) => {
                         {comment}
                     </textarea>
 
-                    <input placeholder="Rate 1 to 10" htmlFor='score' type='number' min='1' max='10' onChange={(e)=>setSore(e.target.value)}/>
+                    <input placeholder="Rate 1 to 5" htmlFor='score' type='number' min='1' max='5' onChange={(e)=>setSore(e.target.value)}/>
                     <button className="buttonStyleSubmit" onClick={(e)=>createReviewHandler(e)}>Submit Review</button>
                 </form>
             }
