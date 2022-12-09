@@ -13,8 +13,7 @@ const CollectionList = () => {
         loadingCollections,
     } = useSelector(state => state.collections);
     const {
-        currentUser,
-        loading
+        currentUser
     } = useSelector(state=> state.users);
     console.log('test',currentUser);
 

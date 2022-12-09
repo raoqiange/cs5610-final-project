@@ -8,10 +8,13 @@ import {getReviewsByAnimeIdThunk} from "../../services/reviews/review-thunks";
 import ReviewList from "../reviews/reviewList";
 
 export default function SinglePost() {
-  const currentUser = "tom"; //now hardcoded need to identify user later
   const params = useParams();
   const {id} = params;
   const dispatch = useDispatch();
+
+  const {
+    currentUser
+  } = useSelector(state=> state.users);
 
   const {
     animeDetail,
@@ -26,14 +29,14 @@ export default function SinglePost() {
 
   useEffect(() => {
     dispatch(getAnimeDetailThunk(id));
-    dispatch(getCollectionsByUsernameThunk(currentUser));
+    currentUser && dispatch(getCollectionsByUsernameThunk(currentUser.username));
     dispatch(getReviewsByAnimeIdThunk(id));
-  }, [dispatch])
+  }, [dispatch, currentUser])
 
   const addAnimeToCollectionHandler = (collectionId, animeDetail) => {
     console.log("hello")
     const animeId = animeDetail._id.trim();
-    const username = currentUser;
+    const username = currentUser.username;
     const body = {
       anime: {
         username: username,
@@ -60,7 +63,15 @@ export default function SinglePost() {
         <h1 className="singlePostTitle">
           {animeDetail.title}
           <div className="singlePostEdit">
-            {currentUser &&
+            {!currentUser &&
+                <>
+                  <i className="singlePostIcon far fa-plus-square"></i>
+                  <select name="collections" id="collections">
+                  <option value="Collections" selected disabled hidden>Please login in to access collections</option>
+                  </select>
+                </>
+            }
+            {currentUser && currentUser.role !== 'ADMIN' &&
               <>
 
                 <i className="singlePostIcon far fa-plus-square"></i>
