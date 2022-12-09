@@ -1,7 +1,7 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {
     getAllForumPostsThunk,
-    // getForumPostByIdThunk,
+    getForumPostByIdThunk,
     getForumPostsByAuthorUsernameThunk,
     createForumPostThunk,
     updateForumPostByIdThunk,
@@ -11,7 +11,7 @@ import {
 const initialState = {
     allPosts: [],
     authorPosts: [],
-    // post: null,
+    post: null,
     error: null,
     postsLoading: true
 }
@@ -31,12 +31,12 @@ const postsReducer = createSlice({
         [getAllForumPostsThunk.pending]: (state, action) => {
             state.postsLoading = true;
         },
-        // [getForumPostByIdThunk.fulfilled]: (state, action) => {
-        //     state.post = action.payload;
-        // },
-        // [getForumPostByIdThunk.rejected]: (state, action) => {
-        //     state.error = action.payload;
-        // },
+        [getForumPostByIdThunk.fulfilled]: (state, action) => {
+            state.post = action.payload;
+        },
+        [getForumPostByIdThunk.rejected]: (state, action) => {
+            state.error = action.payload;
+        },
         [getForumPostsByAuthorUsernameThunk.fulfilled]: (state, action) => {
             state.authorPosts = action.payload;
             state.postsLoading = false;

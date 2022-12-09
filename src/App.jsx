@@ -17,15 +17,17 @@ import Test from "./components/test/test";
 import UserTest from "./components/test/userTest";
 import CollectionTest from "./components/test/collectionTest";
 import ForumPostsTest from "./components/test/postsTest";
+import ForumCommentsTest from "./components/test/commentsTest";
 import userReducer from "./services/users/user-reducer";
 import collectionReducer from "./services/collections/collection-reducer";
 import reviewReducer from "./services/reviews/review-reducer";
 import forumPostsReducer from "./services/forum/forum-post-reducer";
+import forumCommentsReducer from "./services/forum/forum-comment-reducer";
 
 function App() {
   const hasUser = true;
   const store = configureStore({
-    reducer: {anime: animeReducer, users: userReducer, collections: collectionReducer, reviews: reviewReducer, posts: forumPostsReducer}
+    reducer: {anime: animeReducer, users: userReducer, collections: collectionReducer, reviews: reviewReducer, posts: forumPostsReducer, comments: forumCommentsReducer}
   });
 
   return (
@@ -46,6 +48,9 @@ function App() {
             <Route exact path="/forumPostsTest">
               <ForumPostsTest />
             </Route>
+            <Route exact path="/forumCommentsTest">
+              <ForumCommentsTest />
+            </Route>
             <Route exact path="/">
               <Homepage />
             </Route>
@@ -60,6 +65,7 @@ function App() {
               <Single />
             </Route>
             <Route path="/forum">{hasUser ? <Forum /> : <Login />}</Route>
+            {/*<Route path = "/forum/:id"><Post/></Route>*/}
             <Route path="/Profile">
               {hasUser ? <Profile /> : <Login />}
             </Route>
