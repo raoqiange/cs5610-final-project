@@ -35,14 +35,14 @@ export default function Settings() {
           <label>Password</label>
           <input type="password" placeholder="Password" name="password" />
           <button className="settingsSubmitButton" type="submit">Update</button>
-          <div>
+
             <div className="settingsTitleMargin">
               <span className="settingsTitleUpdate">Create Your Own Collection</span>
             </div>
             <div className="collection">
             <CollectionList />
             </div>
-          </div>
+
 
         </form>
 
@@ -51,7 +51,7 @@ export default function Settings() {
 
 
 
-      <Sidebar />
+      {/*<Sidebar />*/}
 
     </div>
   );

@@ -36,13 +36,15 @@ const CollectionDetail = ({currentCollection}) => {
     }
 
     return (
-        <div>
+        <div className="marginAll">
+            <div className="title">
             <h1>Collection Name:</h1>
+                </div>
             {!isEditing &&
                 <>
                     <div>
                         {collectionName}
-                        <button onClick={()=> setEditing(true)}>Edit</button>
+                        <button className="buttonStyleEdit" onClick={()=> setEditing(true)}>Edit</button>
                     </div>
                 </>
             }
@@ -55,8 +57,18 @@ const CollectionDetail = ({currentCollection}) => {
                 </div>
             }
 
-            <div>
-                <h1>Anime In this Collection: </h1>
+
+
+
+
+
+
+
+
+            <div className="animeInCollection">
+                <div className="title">
+                <h1>Animes In this Collection: </h1>
+                </div>
                 {loadingAnimeInCollection && '...loading anime in this collection'}
                 {!loadingAnimeInCollection &&
                     animeInCollection.map(anime =>
