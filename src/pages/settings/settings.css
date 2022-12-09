@@ -13,6 +13,14 @@
   justify-content: space-between;
 }
 
+
+.settingsTitleMargin {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 90px;
+}
+
 .settingsTitleUpdate {
   font-size: 30px;
   margin-bottom: 20px;
@@ -98,4 +106,10 @@
 
 .settingsSubmitButton:hover {
   background-color: steelblue;
+}
+
+.collection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

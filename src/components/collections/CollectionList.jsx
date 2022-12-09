@@ -24,13 +24,11 @@ const CollectionTest = () => {
             <div className="flex-break"></div>
         <div className="collectionList">
             <div>
-                <input type='text' value={newCollectionName} onChange={(e) => setNewCollectionName(e.target.value)}/>
-                <button onClick={()=>dispatch(createCollectionThunk({fan_username: currentUser, name: newCollectionName}))}>
+                <input placeholder="Type a Colletion Name" type='text' value={newCollectionName} onChange={(e) => setNewCollectionName(e.target.value)}/>
+                <button className="buttonStyle" onClick={()=>dispatch(createCollectionThunk({fan_username: currentUser, name: newCollectionName}))}>
                     Add a new Collection
                 </button>
             </div>
-
-            <h2>My Collections...</h2>
             {loadingCollections && "...loading collections"}
             {!loadingCollections &&
                 collections.map(collection => <CollectionCard collection={collection}/>)
