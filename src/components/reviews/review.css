@@ -27,6 +27,9 @@
     margin-top: 20px;
 }
 
+.review-list {
+    padding-bottom: 40px;
+}
 .review {
     font-family: "Gill Sans", sans-serif;
     margin-top: 20px;
@@ -45,6 +48,12 @@ text {
     font-weight: bolder;
 }
 
+.rating-text {
+    width: 80px;
+    font-size: small;
+    text-align: center;
+}
+
 .sideBySide {
     margin-left: 20px;
     display:flex;
@@ -54,6 +63,7 @@ text {
 textarea {
     width: 50%;
     height: 100px;
+    margin-left: 50px;
     padding: 12px 20px;
     box-sizing: border-box;
     border: 2px solid #ccc;

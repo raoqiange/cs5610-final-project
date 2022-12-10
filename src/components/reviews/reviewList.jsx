@@ -42,9 +42,9 @@ const ReviewList = ({animeDetail}) => {
         dispatch(createReviewThunk({animeId, body}))
     }
 
-    console.log(reviews)
+    // console.log(reviews)
     return (
-        <>
+        <div className='review-list'>
             {!loading && reviews.map(review=>
                 <div className="sideBySide">
                     <div className="review">
@@ -69,11 +69,11 @@ const ReviewList = ({animeDetail}) => {
                         {comment}
                     </textarea>
 
-                    <input placeholder="Rate 1 to 5" htmlFor='score' type='number' min='1' max='5' onChange={(e)=>setSore(e.target.value)}/>
+                    <input className='rating-text' placeholder="Rate 1 to 5" htmlFor='score' type='number' min='1' max='5' onChange={(e)=>setSore(e.target.value)}/>
                     <button className="buttonStyleSubmit" onClick={(e)=>createReviewHandler(e)}>Submit Review</button>
                 </form>
             }
-        </>
+        </div>
     )
 }
 
