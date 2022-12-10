@@ -26,3 +26,8 @@
   height: 700px;
   object-fit: cover;
 }
+
+.bannerShrink {
+  height: 260px;
+  transition: 1.2s;
+}
