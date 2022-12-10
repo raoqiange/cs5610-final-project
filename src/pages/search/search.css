@@ -31,3 +31,15 @@
 .anime{
     margin: 30px;
 }
+
+.searchInput {
+    padding: 10px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    width: 500px;
+}
+
+.searchInput:focus {
+    outline: none;
+}

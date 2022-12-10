@@ -21,7 +21,7 @@ const Search = () => {
             <div className="search">
                 <span className="searchTitle">Search</span>
                 <form action="details.html"></form>
-                <input className="loginInput" type='text' placeholder="Please enter the anime you want to search here"
+                <input className="searchInput" type='text' placeholder="Please enter the anime you want to search here"
                        value={searchAnime} onChange={(e)=> setSearchAnime(e.target.value)}/>
                 <button className="searchButton" onClick={()=>{
                     if (searchAnime!="") {
