@@ -24,7 +24,7 @@ import reviewReducer from "./services/reviews/review-reducer";
 import forumPostsReducer from "./services/forum/forum-post-reducer";
 import forumCommentsReducer from "./services/forum/forum-comment-reducer";
 import CurrentUser from "./services/users/current-user";
-import Manage from "./pages/manage/manage";
+import Manage from "./pages/manage/Manage";
 import PublicProfile from "./pages/public-profile/public-profile";
 
 function App() {
@@ -76,13 +76,11 @@ function App() {
               <PublicProfile />
             </Route>
             <Route path="/manage">
-              <Manage/>
+              <Manage />
             </Route>
-
             <Route exact path="/search">
               <Search />
             </Route>
-
             <Route path="/collection/:collectionId">
                 <CollectionPage />
             </Route>

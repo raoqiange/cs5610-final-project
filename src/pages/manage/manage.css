@@ -1,0 +1,76 @@
+.manageTitleUpdate {
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: dodgerblue;
+}
+
+.manages {
+    display: flex;
+    margin-top: 30px;
+    margin-left: 100px;
+    margin-right: 100px;
+    background-color: aliceblue;
+}
+
+.managesWrapper {
+    flex: 9;
+    padding: 20px;
+}
+
+.managesTitle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.managesList {
+    display: inline-block;
+   list-style-type:none;
+    margin-left: 10px;
+    font-size: 20px;
+}
+
+.managesTitleMargin {
+    margin-bottom: 20px;
+    margin-top: 20px;
+
+}
+
+.managesMargin1{
+
+    margin-left: 60px;
+    font-size: 20px;
+    color: hotpink;
+}
+
+.managesMargin2{
+    margin-left: 40px;
+    font-size: 20px;
+    color: hotpink;
+}
+
+.managesPP {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.managesPP > img {
+    height: 70px;
+    width: 70px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+.managesDeleteButton {
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: dodgerblue;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+
+}

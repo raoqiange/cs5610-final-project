@@ -37,7 +37,9 @@ export default function Topbar() {
 
                     {currentUser && currentUser.role === 'ADMIN' &&
 
-                    <NavLink className="link" to="/manage">Manage</NavLink>
+                    <NavLink className="link" to="/manage">
+                        <li className="topListItem" >MANAGE</li>
+                    </NavLink>
                     }
                     <li className="topListItem" onClick={logoutClickHandler}>
                         LOGOUT
