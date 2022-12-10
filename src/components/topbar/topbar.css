@@ -16,13 +16,15 @@
 .topList {
   display: flex;
   justify-content: center;
-  margin: 0;
+  margin-left: 250px;
   padding: 0;
+  width:70%;
   list-style: none;
+
 }
 
 .topListItem {
-  margin-right: 80px;
+  width:80%;
   font-size: 20px;
   font-weight: 350;
   cursor: pointer;
