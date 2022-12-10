@@ -39,7 +39,8 @@
   font-size: 30px;
   border: none;
   padding: 20px;
-  width: 70vw;
+  width: 67vw;
+  margin-left: 6px;
 }
 
 .writeInput::placeholder {
@@ -90,6 +91,7 @@
 .forumMargin{
   margin-left: 160px;
   margin-bottom: 10px;
+
 }
 
 .forumFontSize{

@@ -71,7 +71,7 @@ export default function Forum() {
                         <input
                             id="new-post-title"
                             className="writeInput"
-                            placeholder="Please Enetr Your Title"
+                            placeholder="Please Enter Your Title Here"
                             type="text"
                             autoFocus={true}/>
                     </div>
