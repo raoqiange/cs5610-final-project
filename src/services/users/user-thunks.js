@@ -44,7 +44,10 @@ export const getUserByUsernameThunk = createAsyncThunk(
 )
 export const deleteUserByIdThunk = createAsyncThunk(
     '/deleteUser',
-    async (userId) => await service.deleteUserById(userId)
+    async (userId) => {
+        await service.deleteUserById(userId);
+        return userId;
+    }
 )
 export const updateUserProfileByIdThunk = createAsyncThunk(
     '/updateUserProfileById',

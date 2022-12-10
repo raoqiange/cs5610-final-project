@@ -8,7 +8,10 @@ export const getForumCommentByPostIdThunk = createAsyncThunk(
 
 export const deleteForumCommentThunk = createAsyncThunk(
     '/comments/deleteForumComment',
-    async (commentId) => await service.deleteForumComment(commentId)
+    async (commentId) => {
+        await service.deleteForumComment(commentId);
+        return commentId;
+    }
 )
 
 export const createForumCommentThunk = createAsyncThunk(

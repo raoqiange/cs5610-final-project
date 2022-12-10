@@ -134,12 +134,9 @@ const userReducer = createSlice({
             state.author_users = state.author_users.filter(c => c._id !== action.payload)
         },
         [deleteUserByIdThunk.pending]: (state, action) => {
-            state.users = state.users.filter(c => c._id !== action.payload)
-            state.fan_users = state.fan_users.filter(c => c._id !== action.payload)
-            state.author_users = state.author_users.filter(c => c._id !== action.payload)
             state.deleteUserLoading = false;
         },
-        [deleteUserByIdThunk.pending]: (state, action) => {
+        [deleteUserByIdThunk.rejected]: (state, action) => {
             state.deleteUserLoading = true;
         }
     }

@@ -28,6 +28,9 @@ export const updateForumPostByIdThunk = createAsyncThunk(
 
 export const deleteForumPostByIdThunk = createAsyncThunk(
     '/posts/deleteForumPostById',
-    async (postId) => await service.deleteForumPostById(postId)
+    async (postId) => {
+        await service.deleteForumPostById(postId);
+        return postId;
+    }
 )
 
