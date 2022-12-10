@@ -16,11 +16,19 @@
 .topList {
   display: flex;
   justify-content: center;
-  margin-left: 250px;
+  margin-left: 260px;
   padding: 0;
   width:70%;
   list-style: none;
+}
 
+.topList2 {
+  display: flex;
+  justify-content: center;
+  margin-right: 75px;
+  padding: 0;
+  width:70%;
+  list-style: none;
 }
 
 .topListItem {
@@ -30,8 +38,17 @@
   cursor: pointer;
 }
 
+.topListItem2 {
+  width:100%;
+  margin-left: 105px;
+  font-size: 20px;
+  font-weight: 350;
+  cursor: pointer;
+}
+
+
 .topListItem:hover{
-    color: royalblue;
+  color: royalblue;
 }
 
 .topSearchIcon {
