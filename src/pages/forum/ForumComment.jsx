@@ -58,7 +58,7 @@ export default function ForumComment() {
             {!commentsLoading && comments && comments.map(m =>
                 <div>
                     <p>{m.comment}</p>
-                    <Link to={'/public/' + m.fan_username}>By {m.fan_username}</Link>
+                    <p>By <Link to={'/public/' + m.fan_username}>{m.fan_username}</Link></p>
                     {currentUser && (currentUser.role === 'ADMIN' || (post && currentUser.role === 'FORUM_AUTHOR' && currentUser.username === post.author_username))&&
                         <button onClick={() => dispatch(deleteForumCommentThunk(m._id))}>Delete</button>
                     }
