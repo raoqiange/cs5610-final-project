@@ -23,9 +23,9 @@ export default function Topbar() {
                     <li className="topListItem"><NavLink className="link" to="/forum">FORUM</NavLink></li>
 
                     {currentUser ? (
-                        <NavLink className="link" to="/profile">
-                            <li className="topListItem">PROFILE</li>
-                        </NavLink>
+                            <li className="topListItem">
+                                <NavLink className="link" to="/profile">PROFILE</NavLink>
+                            </li>
                     ) : (
                         <ul className="topList">
                             <li className="topListItem">
