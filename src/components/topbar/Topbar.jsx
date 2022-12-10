@@ -3,6 +3,7 @@ import "./topbar.css";
 import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {userLogoutThunk} from "../../services/users/user-thunks";
+import Login from "../../pages/login/Login";
 
 export default function Topbar() {
     const {
@@ -11,6 +12,7 @@ export default function Topbar() {
     const dispatch = useDispatch();
     const logoutClickHandler = () => {
         dispatch(userLogoutThunk());
+        return <Login />
     }
     return (
         <div className="top">
@@ -36,10 +38,7 @@ export default function Topbar() {
                     )}
 
                     {currentUser && currentUser.role === 'ADMIN' &&
-
-                    <NavLink className="link" to="/manage">
-                        <li className="topListItem" >MANAGE</li>
-                    </NavLink>
+                    <NavLink className="link" to="/manage">Manage</NavLink>
                     }
                     <li className="topListItem" onClick={logoutClickHandler}>
                         LOGOUT

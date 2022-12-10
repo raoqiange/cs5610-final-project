@@ -26,9 +26,9 @@ import forumCommentsReducer from "./services/forum/forum-comment-reducer";
 import CurrentUser from "./services/users/current-user";
 import Manage from "./pages/manage/Manage";
 import PublicProfile from "./pages/public-profile/public-profile";
+import ForumComment from "./pages/forum/ForumComment";
 
 function App() {
-  const hasUser = false;
   const store = configureStore({
     reducer: {anime: animeReducer, users: userReducer, collections: collectionReducer, reviews: reviewReducer, posts: forumPostsReducer, comments: forumCommentsReducer}
   });
@@ -61,13 +61,16 @@ function App() {
             <Route path="/posts">
               <Homepage />
             </Route>
+            <Route path="/home">
+              <Homepage />
+            </Route>
             <Route path="/register"><Register />}
             </Route>
             <Route path="/login"><Login /></Route>
             <Route path="/post/:id">
               <Single />
             </Route>
-            <Route path="/forum"><Forum />}</Route>
+            <Route path="/forum"><Forum /></Route>
             {/*<Route path = "/forum/:id"><Post/></Route>*/}
             <Route path="/Profile">
               <Profile />
@@ -83,6 +86,9 @@ function App() {
             </Route>
             <Route path="/collection/:collectionId">
                 <CollectionPage />
+            </Route>
+            <Route path="/post_comments/:postId">
+              <ForumComment/>
             </Route>
 
           </Switch>

@@ -13,7 +13,8 @@ const initialState = {
     authorPosts: [],
     post: null,
     error: null,
-    postsLoading: true
+    postsLoading: false,
+    singlePostLoading: false
 }
 
 const postsReducer = createSlice({
@@ -33,9 +34,14 @@ const postsReducer = createSlice({
         },
         [getForumPostByIdThunk.fulfilled]: (state, action) => {
             state.post = action.payload;
+            state.singlePostLoading = false;
         },
         [getForumPostByIdThunk.rejected]: (state, action) => {
             state.error = action.payload;
+            state.singlePostLoading = false;
+        },
+        [getForumPostByIdThunk.pending]: (state, action) => {
+            state.singlePostLoading = true;
         },
         [getForumPostsByAuthorUsernameThunk.fulfilled]: (state, action) => {
             state.authorPosts = action.payload;
