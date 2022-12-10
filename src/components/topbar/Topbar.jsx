@@ -46,11 +46,11 @@ export default function Topbar() {
                     <li className="topListItem" onClick={logoutClickHandler}>
                         LOGOUT
                     </li>
-                    <li className="topListItem">
-                        <NavLink className="link" to="/test">
-                            TEST
-                        </NavLink>
-                    </li>
+                    {/*<li className="topListItem">*/}
+                    {/*    <NavLink className="link" to="/test">*/}
+                    {/*        TEST*/}
+                    {/*    </NavLink>*/}
+                    {/*</li>*/}
                     <li className="topListItem">
                         <Link className="link" to="/search">
                             <i className="topSearchIcon fas fa-search"></i>
