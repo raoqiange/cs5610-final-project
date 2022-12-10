@@ -66,7 +66,7 @@ export default function ForumComment() {
                 </div>
             )
             }
-            {currentUser && currentUser.role === 'FAN' &&
+            {currentUser &&
             <div className="write">
                 <form className="writeForm">
                     <div className="writeFormGroup">

@@ -49,7 +49,6 @@ export default function Manage() {
                 />
                 </div>
                 <p>{f.username}</p>
-                <p>{f.favorite_genre}</p>
                 <button className="managesDeleteButton" onClick={() => dispatch(deleteUserByIdThunk(f._id))}>Delete</button>
             </li>
             </ul>
