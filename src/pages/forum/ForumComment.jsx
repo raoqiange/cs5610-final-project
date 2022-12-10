@@ -1,4 +1,4 @@
-import "./forum.css";
+import "./forumComment.css";
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {Link, useParams} from "react-router-dom";
@@ -42,27 +42,28 @@ export default function ForumComment() {
     }
     return (
         <>
-            <div className="writeFormGroup"  >
+            <div className="forumFormGroup"  >
                 <div className="managesWrapper">
-            <h4>Post</h4>
+            <span className="forumTitleUpdate"><b>Post</b></span>
             {!singlePostLoading && post &&
-            <div>
-                <p>{post.title}</p>
-                <p> {post.description} </p>
-                <p>Published by
+            <div className="forumCommentMargin">
+                <p className="forumFontSize">{post.title}</p>
+                <p className="forumFontStyle"> {post.description} </p>
+                <p className="forumCommentColor"><b>Published by</b>
                     <Link to={'/public/' + post.author_username}> {post.author_username}</Link>
                    </p>
                 <br/>
             </div>
             }
 
-            <h4>Comments</h4>
+
+            <span className="forumTitleUpdate"><b>Comments</b></span>
             {!commentsLoading && comments && comments.map(m =>
-                <div>
+                <div className="forumCommentMargin">
                     <p>{m.comment}</p>
-                    <p>By <Link to={'/public/' + m.fan_username}>{m.fan_username}</Link></p>
+                    <p className="forumCommentColor"><b>By</b> <Link to={'/public/' + m.fan_username}>{m.fan_username}</Link></p>
                     {currentUser && (currentUser.role === 'ADMIN' || (post && currentUser.role === 'FORUM_AUTHOR' && currentUser.username === post.author_username))&&
-                        <button onClick={() => dispatch(deleteForumCommentThunk(m._id))}>Delete</button>
+                        <button  onClick={() => dispatch(deleteForumCommentThunk(m._id))} className="forumSubmit">Delete</button>
                     }
                     <br/>
                 </div>

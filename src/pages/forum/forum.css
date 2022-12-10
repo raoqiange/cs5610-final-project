@@ -101,3 +101,13 @@
   font-family: "Lora", sans-serif;
   color: darkslategrey;
 }
+
+.forumFormStyle{
+  border: 1px;
+  border-radius: 10px;
+  background-color: aliceblue;
+  padding-left: 15px;
+  width: 68vw;
+  margin-top: 10px;
+
+}

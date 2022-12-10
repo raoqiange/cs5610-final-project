@@ -46,7 +46,7 @@ export default function Forum() {
             <div className="managesWrapper">
             {/*add style for post here please*/}
             {!postsLoading && allPosts.map(p =>
-                <div>
+                <div className="forumFormStyle">
                     <p className="forumFontSize">
                         <Link to={'/public/' + p.author_username}>
                             {p.author_username}</Link>
