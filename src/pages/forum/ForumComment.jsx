@@ -42,6 +42,8 @@ export default function ForumComment() {
     }
     return (
         <>
+            <div className="writeFormGroup"  >
+                <div className="managesWrapper">
             <h4>Post</h4>
             {!singlePostLoading && post &&
             <div>
@@ -66,6 +68,8 @@ export default function ForumComment() {
                 </div>
             )
             }
+                </div>
+            </div>
             {currentUser &&
             <div className="write">
                 <form className="writeForm">
