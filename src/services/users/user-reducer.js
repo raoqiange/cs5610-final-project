@@ -58,9 +58,11 @@ const userReducer = createSlice({
             state.error = action.payload
             state.currentUser = null
             state.loading = false
+            console.log("rejected")
         },
         [userRegisterThunk.pending]: (state, action) => {
             state.loading = true
+            state.error = null
         },
 
         [userLogoutThunk.fulfilled]: (state, action) => {

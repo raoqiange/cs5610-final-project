@@ -40,25 +40,25 @@ export default function PublicProfile() {
                         />
                     </div>
                     <label>Username</label>
-                    <input style={{width: "340px"}} type="text" value={user && user.username} name="name"/>
+                    <text style={{width: "340px"}} type="text" name="name">{user && user.username}</text>
                     {user && user.role === 'FAN' ?
                         <>
                             <label>Favorite anime genre</label>
-                            <text  style={{width: "340px"}} id="new-fav-genre" type="text"
-                                   defaultValue={user && user.favorite_genre}/> </> :
+                            <text  style={{width: "340px"}} id="new-fav-genre" type="text"/>
+                                   {user && user.favorite_genre} </> :
                         <></>
                     }
                     {user && user.role === 'FORUM_AUTHOR' ?
                         <>
                             <label>Forum limitations </label>
-                            <input type="text" value={user && user.forum_limitations}/>
+                            <text type="text" >{user && user.forum_limitations}</text>
                         </> :
                         <></>
                     }
                     {user && user.role === 'ADMIN' ?
                         <>
                             <label>Email</label>
-                            <text style={{width: "340px"}} id="new-email" type="text" defaultValue={user && user.email}/> </> :
+                            <text style={{width: "340px"}} id="new-email" type="text" />{user && user.email} </> :
                         <></>
                     }
                 </form>

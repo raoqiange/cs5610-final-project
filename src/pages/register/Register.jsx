@@ -8,7 +8,8 @@ import Profile from "../settings/Settings";
 export default function Register() {
     const {
         currentUser,
-        loading
+        loading,
+        error
     } = useSelector(state => state.users);
     const dispatch = useDispatch();
     const registerClickHandler = () => {
@@ -30,6 +31,7 @@ export default function Register() {
         try {
             dispatch(userRegisterThunk(newUser));
         } catch (e) {
+            console.log("error")
         }
     }
     if (currentUser) {
