@@ -9,6 +9,7 @@ import {
     updateForumPostByIdThunk,
     deleteForumPostByIdThunk
 } from "../../services/forum/forum-post-thunks"
+import Login from "../login/Login";
 
 export default function Forum() {
     const {currentUser} = useSelector(state => state.users)
@@ -37,15 +38,22 @@ export default function Forum() {
     }
     return (
         <div>
+            {currentUser &&
             <img
                 className="writeImg"
                 src="https://assets.reedpopcdn.com/Genshin-Impact-anime.jpg/BROK/thumbnail/1600x900/quality/100/Genshin-Impact-anime.jpg"
                 alt=""/>
-
+            }
+            {!currentUser &&
+            <div className="writeFormGroup"  >
+            <div className="forumFormStyle text-title">
+                You have to log in to see the forums!
+                <Login/>
+            </div></div>
+            }
             <div className="writeFormGroup"  >
             <div className="managesWrapper">
-            {/*add style for post here please*/}
-            {!postsLoading && allPosts.map(p =>
+            {currentUser && !postsLoading && allPosts.map(p =>
                 <div className="forumFormStyle">
                     <p className="forumFontSize">
                         <Link to={'/public/' + p.author_username}>
