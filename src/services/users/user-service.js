@@ -1,6 +1,6 @@
 import axios from "axios";
-const API_BASE = "http://localhost:4000/api";
-const USER_API_URL = 'http://localhost:4000/api/users'
+const API_BASE = process.env.API_BASE || "http://localhost:4000/api";
+const USER_API_URL = `${API_BASE}/users`
 const api = axios.create({withCredentials: true});
 
 export const userLogin = async (user) => {

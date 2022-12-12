@@ -1,5 +1,6 @@
 import axios from "axios";
-const POSTS_API_URL = 'http://localhost:4000/api/posts'
+const API_BASE = process.env.API_BASE || 'http://localhost:4000/api'
+const POSTS_API_URL = `${API_BASE}/posts`;
 
 export const getAllForumPosts = async () => {
     const response = await axios.get(`${POSTS_API_URL}`)
