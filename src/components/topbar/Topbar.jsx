@@ -28,10 +28,10 @@ export default function Topbar() {
                             </li>
                     ) : (
                         <ul className="topList2">
-                            <li className="topListItem">
+                            <li className="topListItem" >
                                 <NavLink className="link" to="/login">LOGIN</NavLink>
                             </li>
-                            <li className="topListItem2">
+                            <li className="topListItem">
                                 <NavLink className="link" to="/register">REGISTER</NavLink>
                             </li>
                         </ul>

@@ -25,11 +25,12 @@
 .topList2 {
   display: flex;
   justify-content: center;
-  margin-right: 95px;
+  /*margin-right: 40px;*/
   padding: 0;
-  width:70%;
+  width: 150%;
   list-style: none;
 }
+
 
 .topListItem {
   width:80%;
