@@ -62,7 +62,7 @@ export default function Settings() {
                         />
                     </div>
                     <label>Username</label>
-                    <input style={{width: "340px"}} type="text" value={currentUser && currentUser.username} name="name"/>
+                    <text style={{width: "340px"}} type="text"  name="name">{currentUser && currentUser.username}</text>
                     <label>Password</label>
                     <input style={{width: "340px"}} type="password" defaultValue={currentUser && currentUser.password} name="password"
                            id="new-password"/>
